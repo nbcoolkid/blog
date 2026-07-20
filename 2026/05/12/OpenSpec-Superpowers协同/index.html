@@ -1,0 +1,570 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OpenSpec+Superpowers协同 | 认真生活，慢慢记录</title><meta name="author" content="Sherry"><meta name="copyright" content="Sherry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？ 简单来说，这两个工作流，在定位上，有以下几点区别  **OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单 **Superpowers (守纪律的执行官)**：它负责将蓝图转化为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenSpec+Superpowers协同">
+<meta property="og:url" content="https://blog.zhangln.com/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/index.html">
+<meta property="og:site_name" content="认真生活，慢慢记录">
+<meta property="og:description" content="前言在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？ 简单来说，这两个工作流，在定位上，有以下几点区别  **OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单 **Superpowers (守纪律的执行官)**：它负责将蓝图转化为">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.zhangln.com/images/avatar.jpg">
+<meta property="article:published_time" content="2026-05-11T16:48:13.000Z">
+<meta property="article:modified_time" content="2026-05-11T16:49:20.056Z">
+<meta property="article:author" content="Sherry">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="Claude">
+<meta property="article:tag" content="OpenSpec">
+<meta property="article:tag" content="Superpowers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zhangln.com/images/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OpenSpec+Superpowers协同",
+  "url": "https://blog.zhangln.com/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/",
+  "image": "https://blog.zhangln.com/images/avatar.jpg",
+  "datePublished": "2026-05-11T16:48:13.000Z",
+  "dateModified": "2026-05-11T16:49:20.056Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sherry",
+      "url": "https://blog.zhangln.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://blog.zhangln.com/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OpenSpec+Superpowers协同',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1F3E54;"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">认真生活，慢慢记录</span></a><a class="nav-page-title" href="/"><span class="site-name">OpenSpec+Superpowers协同</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="post-info"><h1 class="post-title">OpenSpec+Superpowers协同</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-11T16:48:13.000Z" title="发表于 2026-05-12 00:48:13">2026-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-11T16:49:20.056Z" title="更新于 2026-05-12 00:49:20">2026-05-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？</p>
+<p>简单来说，这两个工作流，在定位上，有以下几点区别</p>
+<ul>
+<li>**OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单</li>
+<li>**Superpowers (守纪律的执行官)**：它负责将蓝图转化为工程实践，解决“怎么做”的问题，通过强制 TDD（测试驱动开发）、头脑风暴、代码审查等技能，确保每一步都符合工程标准</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>🔍 OpenSpec (做规划)</th>
+<th>🚀 Superpowers (保执行)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>核心定位</strong></td>
+<td>做规划的总设计师</td>
+<td>守纪律的执行官</td>
+</tr>
+<tr>
+<td><strong>解决的问题</strong></td>
+<td>“做什么”</td>
+<td>“怎么做”</td>
+</tr>
+<tr>
+<td><strong>核心能力</strong></td>
+<td>制定<strong>规范和蓝图</strong>，确保<strong>需求对齐与变更可追溯</strong></td>
+<td>确保<strong>工程纪律与执行质量</strong>，强制TDD、头脑风暴等</td>
+</tr>
+<tr>
+<td><strong>核心产出</strong></td>
+<td><code>proposal.md</code>, <code>design.md</code>, <code>tasks.md</code> 等结构化文档</td>
+<td>可执行的、细分的工作步骤，以及符合规范的最终代码</td>
+</tr>
+<tr>
+<td><strong>工作流程</strong></td>
+<td>提案 → 实施 → 归档</td>
+<td>头脑风暴 → 写计划 → 子代理执行 → 验证&#x2F;归档</td>
+</tr>
+</tbody></table>
+<h3 id="OpenSpec武器库"><a href="#OpenSpec武器库" class="headerlink" title="OpenSpec武器库"></a>OpenSpec武器库</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>/opsx:apply</code></strong></td>
+<td>应用一个已批准的变更，开始按照 <code>tasks.md</code> 中的任务清单实施代码。这是从规范到代码的“施工”阶段。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:archive</code></strong></td>
+<td>归档一个已完成的变更：将 <code>proposal.md</code>、<code>design.md</code>、<code>tasks.md</code> 以及增量规范（Delta Specs）移动到 <code>changes/archive/</code>，并更新主规范（<code>specs/</code> 目录）。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:bulk-archive</code></strong></td>
+<td>批量归档多个已完成的变更，适用于一次性清理多个已合并或废弃的提案。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:continue</code></strong></td>
+<td>继续一个中断的 OpenSpec 工作流。例如，如果你在 <code>propose</code> 过程中退出，可以用该命令从中断处恢复。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:explore</code></strong></td>
+<td>启动需求探索阶段：分析现有代码、讨论多种方案、理清需求边界。不生成正式规范，适合前期调研。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:ff</code></strong></td>
+<td>“Fast‑Forward” 的缩写。快速推进一个变更，跳过某些交互式确认步骤，直接使用默认值或上次的选择。适用于有明确标准的重复操作。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:new</code></strong></td>
+<td>创建一个新的变更（change）。会生成一个变更 ID，并初始化 <code>openspec/changes/&lt;id&gt;/</code> 目录结构。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:onboard</code></strong></td>
+<td>新手引导命令。首次使用 OpenSpec 时运行，它会检查环境、创建必要的目录（如 <code>specs/</code>、<code>changes/</code>），并给出快速上手指南。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:propose</code></strong></td>
+<td>基于 <code>explore</code> 的讨论（或直接输入需求），生成正式的提案文档：<code>proposal.md</code>、<code>design.md</code>、<code>tasks.md</code> 以及 <code>specs/</code> 下的增量差异文件。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:sync</code></strong></td>
+<td>同步规范文件。当外部因素（如手动编辑、合并冲突）导致 <code>specs/</code> 与归档的变更不一致时，用此命令重新对齐。</td>
+</tr>
+<tr>
+<td><strong><code>/opsx:verify</code></strong></td>
+<td>验证当前代码实现是否与 <code>specs/</code> 中的规范（GIVEN&#x2F;WHEN&#x2F;THEN）完全一致。输出差异报告，帮助发现偏离设计的实现。</td>
+</tr>
+<tr>
+<td><code>/opsx:onboard</code></td>
+<td>新手教程</td>
+</tr>
+</tbody></table>
+<ul>
+<li>核心顺序</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/opsx:explore   →   /opsx:new   →   /opsx:propose   →   /opsx:apply   →   /opsx:verify   →   /opsx:archive</span><br><span class="line">     ↑                  ↑               ↑                   ↑                ↑                 ↑</span><br><span class="line">  (可选调研)        (创建变更)       (撰写提案)          (实现代码)        (验证结果)        (归档完成)</span><br></pre></td></tr></table></figure>
+
+<p>而 <code>continue</code>、<code>ff</code>、<code>sync</code>、<code>bulk-archive</code>、<code>onboard</code> 是辅助命令，用于处理中断、快速操作、环境同步和新手配置等场景</p>
+<p>在工作流中，它们的顺序是固定的：</p>
+<ol>
+<li>**❓ 先 <code>/opsx:explore</code>**：当你对要解决什么问题还不完全确定时使用。用它来彻底思考，避免走弯路。    </li>
+<li>**✅ 再 <code>/opsx:new</code>**：当你思考成熟，明确了要做什么后，用它来正式创建一个变更任务，开启实施阶段。</li>
+</ol>
+<ul>
+<li>⚖️ 选择 <code>/opsx:propose</code> or <code>/opsx:new</code>？</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>🚀 <code>/opsx:propose</code> (一站式快速路径)</th>
+<th>🛠️ <code>/opsx:new</code> (精细化脚手架)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>工作流类型</strong></td>
+<td>默认快速工作流（Core Profile），旨在提供顺畅的“Aha Moment”体验。</td>
+<td>扩展工作流，属于“精细化控制”的一部分。</td>
+</tr>
+<tr>
+<td><strong>核心操作</strong></td>
+<td><strong>合一</strong>：一个命令完成变更目录创建和所有规划文件（<code>proposal</code>, <code>design</code>, <code>tasks</code>等）的生成。</td>
+<td><strong>分离</strong>：仅负责创建目录结构，但不生成文件内容。</td>
+</tr>
+<tr>
+<td><strong>控制粒度</strong></td>
+<td><strong>粗粒度</strong>：不提供中间环节，一次性产出所有结果。</td>
+<td><strong>细粒度</strong>：可以让你在每生成一个文件后都进行审查和调整。</td>
+</tr>
+<tr>
+<td><strong>适用人群</strong></td>
+<td>需求明确、思路清晰、追求效率的开发者。</td>
+<td>需求复杂、希望审慎推进、喜欢精细控制的开发者。</td>
+</tr>
+<tr>
+<td><strong>扩展可能性</strong></td>
+<td>无法中断和干预。</td>
+<td>灵活性极高，之后可选择继续生成文件   (<code>/opsx:continue</code>) 或批量生成 (<code>/opsx:ff</code>)。</td>
+</tr>
+</tbody></table>
+<p>如果把一个功能实现比作“盖房子”，这两种方式的区别就很形象了。</p>
+<ul>
+<li><strong>需求明确，即用即走 → 选 <code>/opsx:propose</code></strong><br> 它就像一个高效的机器人管家。你只需发出指令，它就能一键完成所有的蓝图设计，直接给出最终方案。最适合在目标明确，需要快速前进的场景。</li>
+<li><strong>需求模糊，慎重决策 → 选 <code>/opsx:new</code></strong><br> 它更像一位协助你、启发你的建筑师。它先帮你搭建起一个分区的办公空间，并引导你逐一填充内容。在每一步完成后，你都可以和AI一起审视、修改，确保大方向正确后再推进下一步，从而充分掌控项目的生命力。</li>
+</ul>
+<p>总而言之，这不是一个技术对错之争，而是 <strong>“工作效率”与“过程控制”之间的权衡</strong>。</p>
+<ul>
+<li>当你思路清晰、目标明确时，<code>/opsx:propose</code> 能让你<strong>快速行动</strong>。</li>
+<li>当事情模糊、需要探索和反复推敲时，先使用 <code>/opsx:new</code> 能帮助你<strong>稳妥地思考并构建方案</strong>。</li>
+</ul>
+<h4 id="OpenSpec流程决策图"><a href="#OpenSpec流程决策图" class="headerlink" title="OpenSpec流程决策图"></a>OpenSpec流程决策图</h4><p><img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/9AcEwsNy9MCMT829nIBE-deepseek_mermaid_20260511_d63ffe.png" alt="deepseek mermaid 20260511 d63ffe"></p>
+<ul>
+<li><strong><code>/opsx:explore</code> 完全可选</strong>：熟练后可跳过，直接用 <code>propose</code> 或 <code>new</code>。</li>
+<li><strong><code>/opsx:propose</code> 最省事</strong>：适合大多数日常开发。</li>
+<li><strong><code>/opsx:new</code> 系列</strong>：适合需要多次斟酌、或希望严格分步提交 PR 的复杂变更。</li>
+<li><strong><code>/opsx:verify</code> 不可忽略</strong>：它是确保实现与规范一致的最后防线。</li>
+</ul>
+<h3 id="Superpowers武器库"><a href="#Superpowers武器库" class="headerlink" title="Superpowers武器库"></a>Superpowers武器库</h3><ul>
+<li>核心流程技能</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>技能名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>brainstorming</td>
+<td>头脑风暴 - 用于任何创意工作前（创建功能、构建组件、添加功能）</td>
+</tr>
+<tr>
+<td>writing-plans</td>
+<td>编写计划 - 编写多步骤任务的实施计划</td>
+</tr>
+<tr>
+<td>executing-plans</td>
+<td>执行计划 - 在单独会话中执行实施计划</td>
+</tr>
+<tr>
+<td>subagent-driven-development</td>
+<td>子代理驱动开发 - 使用独立任务执行实施计划</td>
+</tr>
+</tbody></table>
+<ul>
+<li>质量保障技能</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>技能名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>test-driven-development</td>
+<td>测试驱动开发 - 实现任何功能或修复前先写测试</td>
+</tr>
+<tr>
+<td>systematic-debugging</td>
+<td>系统化调试 - 遇到 bug 或异常行为时使用</td>
+</tr>
+<tr>
+<td>verification-before-completion</td>
+<td>完成前验证 - 声称完成前必须通过验证</td>
+</tr>
+<tr>
+<td>requesting-code-review</td>
+<td>请求代码审查 - 完成任务或重大功能后验证工作</td>
+</tr>
+</tbody></table>
+<ul>
+<li>特殊场景技能</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>技能名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>receiving-code-review</td>
+<td>接收代码审查 - 收到审查反馈时使用</td>
+</tr>
+<tr>
+<td>finishing-a-development-branch</td>
+<td>完成开发分支 - 实现完成、测试通过后如何整合工作</td>
+</tr>
+<tr>
+<td>using-git-worktrees</td>
+<td>使用 Git Worktrees - 需要隔离工作空间时使用</td>
+</tr>
+</tbody></table>
+<ul>
+<li>开发者工具技能</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>技能名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>writing-skills</td>
+<td>编写技能 - 创建、编辑或验证新技能</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>先进入项目目录，执行：<code>openspec init</code></p>
+<h3 id="明确要做什么：OpenSpec"><a href="#明确要做什么：OpenSpec" class="headerlink" title="明确要做什么：OpenSpec"></a>明确要做什么：OpenSpec</h3><p><img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/OJyBEWMa391ynlVGXu6v-Pasted%20image%2020260511233251.png" alt="Pasted image 20260511233251"></p>
+<p>最终生成如下几份文件，如果在OpenSpec流程的话，就直接使用 <code>/opsx:apply</code>，执行了，但现在，我们使用<code>Superpowers</code>来执行</p>
+<p><img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/07EHNCMHzE7egbWLOeoo-Pasted%20image%2020260511233636.png" alt="Pasted image 20260511233636"></p>
+<p>这些文档，我们要一个个都去看一下。看看是否满足我们的要求。</p>
+<h3 id="干活：Superpowers"><a href="#干活：Superpowers" class="headerlink" title="干活：Superpowers"></a>干活：Superpowers</h3><p>将上一步生成的tasks文件喂给Superpowers，编写执行计划</p>
+<p><img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/AmObW3m1afcZrSUjJ16M-Pasted%20image%2020260511234441.png" alt="Pasted image 20260511234441"><br> 选择1，开干 此时自动加入 <code>/superpowers:subagent-driven-development</code>（含 TDD）<br> <img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/3RB8fGzePHcoRlRIQTD8-Pasted%20image%2020260511234702.png" alt="Pasted image 20260511234702"></p>
+<p>按照规划，一步步走<br> <img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/ZLpUXsfKMFKizwE9Wh3w-Pasted%20image%2020260511235857.png" alt="Pasted image 20260511235857"></p>
+<h3 id="收尾：OpenSpec-Superpowers"><a href="#收尾：OpenSpec-Superpowers" class="headerlink" title="收尾：OpenSpec&amp;Superpowers"></a>收尾：OpenSpec&amp;Superpowers</h3><ul>
+<li>完成后验证：<code>/superpowers:verification-before-completion</code></li>
+<li>规范一致性检查：<code>/opsx:verify</code><br> <img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/myKvOuAyiEBivmbrB11e-Pasted%20image%2020260512002941.png" alt="Pasted image 20260512002941"></li>
+<li>归档并更新主规范：<code>/opsx:archive</code><br> 记住这个归档前的目录<img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/0HUJydz6J3VjVMWFGiR3-Pasted%20image%2020260512002909.png" alt="Pasted image 20260512002909"></li>
+</ul>
+<p><img src="https://tuchuang-md.oss-cn-hangzhou.aliyuncs.com/2026/05/EAC73omL50BszeBb1oy6-Pasted%20image%2020260512003342.png" alt="Pasted image 20260512003342"></p>
+<p><strong>核心优势</strong>：OpenSpec 负责“做正确的事”（规范、可追溯），Superpowers 负责“正确地做事”（工程纪律、质量保障）。</p>
+<h2 id="🔧-其他技能的使用场景（补充说明）"><a href="#🔧-其他技能的使用场景（补充说明）" class="headerlink" title="🔧 其他技能的使用场景（补充说明）"></a>🔧 其他技能的使用场景（补充说明）</h2><h3 id="1-systematic-debugging"><a href="#1-systematic-debugging" class="headerlink" title="1. systematic-debugging"></a>1. <code>systematic-debugging</code></h3><p><strong>场景</strong>：在 <code>loadConfig()</code> 合并对象时，发现配置中某些字段丢失。<br> <strong>使用</strong>：输入 <code>/superpowers:systematic-debugging</code>，AI 会：</p>
+<ul>
+<li>要求你复现 bug 并提供日志。</li>
+<li>提出假设（例如：合并逻辑是浅拷贝导致深层字段丢失）。</li>
+<li>设计实验（写一个最小测试用例）。</li>
+<li>修复并验证。</li>
+</ul>
+<p><strong>效果</strong>：避免随机改代码，快速定位根源。</p>
+<h3 id="2-using-git-worktrees"><a href="#2-using-git-worktrees" class="headerlink" title="2. using-git-worktrees"></a>2. <code>using-git-worktrees</code></h3><p><strong>场景</strong>：你同时需要维护两个分支：一个紧急修复 hotfix，一个开发配置功能。<br> <strong>使用</strong>：输入 <code>/superpowers:using-git-worktrees</code>，AI 会：</p>
+<ul>
+<li>指导你用 <code>git worktree add</code> 创建一个新的工作目录，独立检出 hotfix 分支。</li>
+<li>在新目录中修改、测试、提交，完全不影响当前 config-management 分支的工作区。</li>
+<li>完成后删除 worktree。</li>
+</ul>
+<p><strong>效果</strong>：无需频繁 stash 或切换分支，并行开发无干扰。</p>
+<h3 id="3-writing-skills"><a href="#3-writing-skills" class="headerlink" title="3. writing-skills"></a>3. <code>writing-skills</code></h3><p><strong>场景</strong>：团队想定制一个“自动生成 API 文档”的技能。<br> <strong>使用</strong>：输入 <code>/superpowers:writing-skills</code>，AI 会：</p>
+<ul>
+<li>引导你描述新技能的目的、输入输出。</li>
+<li>生成标准的 <code>SKILL.md</code> 文件，包含指令、示例、验证步骤。</li>
+<li>帮你放置到 <code>~/.claude/skills/</code> 目录，并测试新技能。</li>
+</ul>
+<p><strong>效果</strong>：轻松扩展 Claude 的能力，适配团队特殊流程。</p>
+<h3 id="4-finishing-a-development-branch"><a href="#4-finishing-a-development-branch" class="headerlink" title="4. finishing-a-development-branch"></a>4. <code>finishing-a-development-branch</code></h3><p><strong>场景</strong>：配置管理功能完成，测试通过，准备合并到 main。<br> <strong>使用</strong>：输入 <code>/superpowers:finishing-a-development-branch</code>，AI 会：</p>
+<ul>
+<li>检查未提交的更改、运行完整的测试套件。</li>
+<li>提示你更新 CHANGELOG。</li>
+<li>执行 <code>git checkout main &amp;&amp; git merge --no-ff</code>，打 tag（按语义化版本）。</li>
+<li>删除本地功能分支。</li>
+</ul>
+<p><strong>效果</strong>：标准化的收尾流程，避免遗漏。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="✅-什么时候必须使用-OpenSpec？"><a href="#✅-什么时候必须使用-OpenSpec？" class="headerlink" title="✅ 什么时候必须使用 OpenSpec？"></a>✅ 什么时候必须使用 OpenSpec？</h3><ul>
+<li><strong>多人协作项目</strong>：规范是团队的共同语言。</li>
+<li><strong>长期维护</strong>：需要追溯“为什么这么做”。</li>
+<li><strong>需求频繁变更</strong>：OpenSpec 能检测规范冲突。</li>
+<li><strong>需要交付设计文档</strong>：提案和设计文件可直接用于评审。</li>
+</ul>
+<h3 id="✅-什么时候只用-Superpowers-就够了？"><a href="#✅-什么时候只用-Superpowers-就够了？" class="headerlink" title="✅ 什么时候只用 Superpowers 就够了？"></a>✅ 什么时候只用 Superpowers 就够了？</h3><ul>
+<li><strong>个人项目</strong>或<strong>原型开发</strong>，不需要长期规范。</li>
+<li><strong>简单的 bug 修复</strong>、微小的功能增强（1-2 个文件改动）。</li>
+<li><strong>实验性代码</strong>，随时可能推翻重写。</li>
+</ul>
+<h3 id="⚠️-常见陷阱与解决方案"><a href="#⚠️-常见陷阱与解决方案" class="headerlink" title="⚠️ 常见陷阱与解决方案"></a>⚠️ 常见陷阱与解决方案</h3><table>
+<thead>
+<tr>
+<th>陷阱</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>误以为两个工具必须串联所有步骤</td>
+<td>灵活裁剪：小需求可跳过 <code>/opsx:explore</code>，直接用 <code>/opsx:propose</code>；超小改动甚至只用 Superpowers 的 <code>subagent-driven-development</code>。</td>
+</tr>
+<tr>
+<td>忘记手动衔接 <code>writing-plans</code> 与 <code>tasks.md</code></td>
+<td>养成习惯：<code>/superpowers:writing-plans openspec/changes/.../tasks.md</code>。</td>
+</tr>
+<tr>
+<td><code>using-git-worktrees</code> 自动创建 <code>.worktrees/</code> 导致困惑</td>
+<td>在 <code>CLAUDE.md</code> 中配置全局 worktree 目录，或直接删除该文件夹（不影响主仓库）。</td>
+</tr>
+<tr>
+<td>忽略 <code>/opsx:verify</code> 直接归档</td>
+<td>务必先 verify，确保代码与规范一致，否则归档后规范会“说谎”。</td>
+</tr>
+<tr>
+<td>计划文件 <code>plan.md</code> 被随意丢弃</td>
+<td>保留在 <code>openspec/changes/&lt;id&gt;/</code> 下，与规范一起归档，供日后审计。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>极简模板</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果需求模糊的话，讨论清楚后再 propose</span></span><br><span class="line">/opsx:explore</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 开始一个变更</span></span><br><span class="line">/opsx:propose add-user-auth</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 细化计划（将 tasks.md 喂给 Superpowers）</span></span><br><span class="line">/superpowers:writing-plans openspec/changes/add-user-auth/tasks.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 执行开发</span></span><br><span class="line">/superpowers:subagent-driven-development</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 验证</span></span><br><span class="line">/opsx:verify add-user-auth</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 归档</span></span><br><span class="line">/opsx:archive add-user-auth</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>OpenSpec 把需求变成可追溯的蓝图，Superpowers 按蓝图施工并确保工程质量。两者结合 &#x3D; 规范驱动的高质量交付。</strong></p>
+</blockquote>
+<p>这套流程特别适合<strong>中大型项目、团队协作、需要长期维护</strong>的场景。对于个人小项目，你完全可以只用 Superpowers 快速迭代；而对于企业级应用，引入 OpenSpec 能让技术决策和变更历史清晰可查，大幅降低协作成本。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI/">AI</a><a class="post-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/">AI编程</a><a class="post-meta__tags" href="/tags/Claude/">Claude</a><a class="post-meta__tags" href="/tags/Superpowers/">Superpowers</a><a class="post-meta__tags" href="/tags/OpenSpec/">OpenSpec</a></div><div class="post-share"><div class="social-share" data-image="/images/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/05/12/%E6%8E%A8%E8%8D%90%E4%B8%80%E6%AC%BE%E6%90%AD%E9%85%8DClaudeCode%E7%9A%84%E7%BB%88%E7%AB%AF-Ghostty/" title="推荐一款搭配ClaudeCode的终端-Ghostty"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">推荐一款搭配ClaudeCode的终端-Ghostty</div></div><div class="info-2"><div class="info-item-1">原文链接：https://x.com/BruceBlue/status/2032703807189299694 最近发现了一款很好用的 Terminal，非常适合 AI Coding 工具，之前我一直用 iTerm 配合 zsh 来操作命令行，但它在 node 服务开的多的情况下会变卡。 以下内容原文出处来源于 X 上的 @BruceBlue，写的非常好， respect。 你是不是也遇到过这些崩溃时刻： 12345终端卡得像老牛拉车？  Claude写代码时输出一堆文字看不清？  想左右分屏（左边让Claude写代码、右边debug）  却不知道怎么加屏幕？  配置一改就弹窗报错？  慌！ Ghostty就是为你准备的！ 它像一个调皮的小鬼，跑得飞快、长得漂亮，还天生和Claude是好搭档。 这篇全新入门文章，我把所有坑都踩过一遍，用最简单的话 + 手把手截图 + 基础命令教你。 读完5分钟，你就能： 12345打开Ghostty就自动进Claude  Cmd + D 一键左右添加屏幕  Cmd + Shift + Enter 一键放大Claude输出  配上彩虹状态栏 + 快...</div></div></div></a><a class="pagination-related" href="/2026/05/05/AI%E7%BC%96%E7%A8%8B%E4%B9%8BSuperpowers%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="AI编程之Superpowers工作流"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AI编程之Superpowers工作流</div></div><div class="info-2"><div class="info-item-1">与SpecKit、OpenSpec的对比https://github.com/obra/superpowers  Superpowers：给 AI 代理定 “干活的规矩与技能”（怎么干），偏执行层 &#x2F; 工作流强制框架。 SpecKit：GitHub 官方的 “重型规范驱动框架”（按什么规矩干），强流程、强文档、适合大型 &#x2F; 从零开始项目。 OpenSpec：社区驱动的 “轻量规范驱动框架”（改了什么、如何共识），灵活、适合存量 &#x2F; 快速迭代项目。  OpenSpec和SpecKit作为SDD开发范式，目的是让模型在执行任务的时候，有据可依，从而有效避免产生幻觉。 Superpowers是一个全自动开发工作流，其运行逻辑，和传统的SDD完全不同。 SDD趋向于将创意或者对话，转化为结构化的技术规范，以及供AI编程Agent执行的任务清单。 Superpowers的功能更进一步，它为AI提供了一套完整的开发工作流。它能自动引导AI完成头脑风暴、设计，并生成技术规范，制定详细的实施计划。 安装Superpowers 在 Claude Code 中安装 Su...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/05/05/AI%E7%BC%96%E7%A8%8B%E4%B9%8BSuperpowers%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="AI编程之Superpowers工作流"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-05</div><div class="info-item-2">AI编程之Superpowers工作流</div></div><div class="info-2"><div class="info-item-1">与SpecKit、OpenSpec的对比https://github.com/obra/superpowers  Superpowers：给 AI 代理定 “干活的规矩与技能”（怎么干），偏执行层 &#x2F; 工作流强制框架。 SpecKit：GitHub 官方的 “重型规范驱动框架”（按什么规矩干），强流程、强文档、适合大型 &#x2F; 从零开始项目。 OpenSpec：社区驱动的 “轻量规范驱动框架”（改了什么、如何共识），灵活、适合存量 &#x2F; 快速迭代项目。  OpenSpec和SpecKit作为SDD开发范式，目的是让模型在执行任务的时候，有据可依，从而有效避免产生幻觉。 Superpowers是一个全自动开发工作流，其运行逻辑，和传统的SDD完全不同。 SDD趋向于将创意或者对话，转化为结构化的技术规范，以及供AI编程Agent执行的任务清单。 Superpowers的功能更进一步，它为AI提供了一套完整的开发工作流。它能自动引导AI完成头脑风暴、设计，并生成技术规范，制定详细的实施计划。 安装Superpowers 在 Claude Code 中安装 Su...</div></div></div></a><a class="pagination-related" href="/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/" title="专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-03</div><div class="info-item-2">专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程</div></div><div class="info-2"><div class="info-item-1">我直接给你在 Codex 里逐字复制就能用的完整操作步骤、指令、文件结构、执行顺序，完全适配 Codex 的云沙箱、并行执行、命令式风格。 你不用改任何东西，跟着做就能跑通。  一、先给 Codex 下发「总启动指令」（复制直接发）这一步是全局激活三合一模式，Codex 会自动遵守所有规则： 1234567请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。规则：1. GSD：最小可行实现，禁止过度设计、不做无关功能、快速闭环。2. OpenSpec：必须先产出完整规范文档，再写代码。3. Superpowers：必须 TDD 先行，先写测试，再写业务代码，严格做异常处理、参数校验、日志、防重、代码审查。4. 全部在你自带的云沙箱中执行，自动创建文件、运行命令、测试。需求：开发 SpringBoot 用户修改手机号接口，包含：手机号格式校验、短信验证码校验、5秒防重复提交、记录操作日志、更新MySQL用户表。   二、Codex 会自动执行的 第一步：GSD 范围锁定它会自动输出： 12345678910111213已锁定GSD最小范围：✅ 必...</div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack-readMe%E6%80%BB%E7%BB%93/" title="gstack-readMe总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack-readMe总结</div></div><div class="info-2"><div class="info-item-1">一、核心简介（精简版）gstack 是AI全流程开发工作流，依托Claude Code搭建虚拟研发团队，一站式完成需求梳理→架构设计→编码→审代码→测试→发布→复盘，单人效率比肩团队，MIT开源免费，适配主流AI编程工具。 核心效率数据2026有效逻辑代码产出 &#x3D; 2013年同期240倍，日均效率提升810倍 二、30秒极简安装 依赖：Claude Code、Git、Bun1.0+ 终端执行安装1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup 团队协同（强制启用）1(cd ~/.claude/skills/gstack &amp;&amp; ./setup --team) &amp;&amp; ~/.claude/skills/gstack/bin/gstack-team-init required &amp;...</div></div></div></a><a class="pagination-related" href="/2026/05/04/%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-SDD-SpecKit/" title="规范驱动开发-SDD-SpecKit"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-04</div><div class="info-item-2">规范驱动开发-SDD-SpecKit</div></div><div class="info-2"><div class="info-item-1">SDD对比传统开发范式在SDD之前，我们有以下几种经典的开发范式：  TDD：测试驱动开发。先写失败测试，完成最小实现，最后进行代码重构。关注的是代码的正确性。 BDD：行为驱动开发。用自然语言描述系统行为。Given&#x2F;When&#x2F;Then。核心价值在于消除需求的歧义。关注的是业务验收与共同理解。 DDD：领域驱动开发。统一语言限界上下文。核心关注建模与系统的边界。使系统设计更贴合实际业务场景。  在AI大模型兴起后，Vibe Coding迅速在AI编程领域应用起来。这个时候，SDD-规范驱动开发。就特别适合现在这个AI编程时代。 一句话总结，SDD就是用精准技术规范作为唯一的真相源，驱动设计、编码、测试与文档。 SDD，先把需求、约束、边界条件、验收标准，写成结构化的Spec文档，再让AI Agent基于Spec，去规划、拆解、编码、测试、反复验证。 总之，AI的行为，取决于Spec文档中的精准描述。 人，多做设计决策，少写代码。 AI，负责“搬砖”、 让SDD和TDD、BDD、DDD，做一个本质区别的话， 前者强调的是，人，怎么把控AI，不要让AI写的代码偏...</div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack%E6%B5%85%E5%B0%9D%E8%BE%84%E6%AD%A2/" title="gstack浅尝辄止"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack浅尝辄止</div></div><div class="info-2"><div class="info-item-1">https://github.com/garrytan/gstack 环境安装 先安装bun 123curl -fsSL https://bun.sh/install | bashsource ~/.zshrcbun -v  bun常用命令 12345bun init        # 新建项目bun i           # 安装依赖bun run xxx     # 运行脚本bun upgrade     # 更新bunbun uninstall   # 卸载  安装gstack 1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup  进入claude后，能看到/office-hours，就说明安装成功了 HelloWorld Install gstack (30 seconds — see below) Run /o...</div></div></div></a><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-18</div><div class="info-item-2">学不完，根本学不完-Superpowers使用指南</div></div><div class="info-2"><div class="info-item-1">Superpowers 使用指南 基于 14 个 Superpowers Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   核心理念Superpowers 不是工具集，而是一套纪律框架。它不提供具体怎么做（那是 mattpocock 和 Gstack 的事），而是定义什么时候做、按什么顺序做、以什么标准做。 14 个 Skill 通过铁律（Iron Law）机制强制执行，违反铁律的操作会被明确禁止。  铁律体系Superpowers 的核心是 5 条铁律，贯穿所有 Skill：    铁律 所属 Skill 内容    Skill 优先 using-superpowers 在任何回复之前必须检查并调用相关 Skill   先思考再动手 brainstorming 没有经过头脑风暴和设计审批，绝不写代码   先测试再实现 test-driven-development 没有失败的测试，绝不写生产代码   先查根因再修复 systematic-debugging 没有根因调查，绝不修复 bug   证据先于断言 verification-before-co...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sherry</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nbcoolkid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好好学习，天天向上！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenSpec%E6%AD%A6%E5%99%A8%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">OpenSpec武器库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenSpec%E6%B5%81%E7%A8%8B%E5%86%B3%E7%AD%96%E5%9B%BE"><span class="toc-number">1.1.1.</span> <span class="toc-text">OpenSpec流程决策图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Superpowers%E6%AD%A6%E5%99%A8%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">Superpowers武器库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98"><span class="toc-number">2.</span> <span class="toc-text">实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%8E%E7%A1%AE%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9AOpenSpec"><span class="toc-number">2.1.</span> <span class="toc-text">明确要做什么：OpenSpec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B2%E6%B4%BB%EF%BC%9ASuperpowers"><span class="toc-number">2.2.</span> <span class="toc-text">干活：Superpowers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E5%B0%BE%EF%BC%9AOpenSpec-Superpowers"><span class="toc-number">2.3.</span> <span class="toc-text">收尾：OpenSpec&amp;Superpowers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%A7-%E5%85%B6%E4%BB%96%E6%8A%80%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%88%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">🔧 其他技能的使用场景（补充说明）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-systematic-debugging"><span class="toc-number">3.1.</span> <span class="toc-text">1. systematic-debugging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-using-git-worktrees"><span class="toc-number">3.2.</span> <span class="toc-text">2. using-git-worktrees</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-writing-skills"><span class="toc-number">3.3.</span> <span class="toc-text">3. writing-skills</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-finishing-a-development-branch"><span class="toc-number">3.4.</span> <span class="toc-text">4. finishing-a-development-branch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8-OpenSpec%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">✅ 什么时候必须使用 OpenSpec？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AA%E7%94%A8-Superpowers-%E5%B0%B1%E5%A4%9F%E4%BA%86%EF%BC%9F"><span class="toc-number">4.2.</span> <span class="toc-text">✅ 什么时候只用 Superpowers 就够了？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-%E5%B8%B8%E8%A7%81%E9%99%B7%E9%98%B1%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">4.3.</span> <span class="toc-text">⚠️ 常见陷阱与解决方案</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南">学不完，根本学不完-GSD学习指南</a><time datetime="2026-07-18T14:21:23.000Z" title="发表于 2026-07-18 22:21:23">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南">学不完，根本学不完-Superpowers使用指南</a><time datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南">学不完，根本学不完-Gstack-Skills-使用指南</a><time datetime="2026-07-18T13:41:54.000Z" title="发表于 2026-07-18 21:41:54">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills">学不完，根本学不完-mattpocock-skills</a><time datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/01/HelloWorld-C/" title="HelloWorld-C">HelloWorld-C</a><time datetime="2026-06-01T12:32:31.000Z" title="发表于 2026-06-01 20:32:31">2026-06-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Sherry</span></div><div class="footer_custom_text">Powered by Sherry | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备19002332号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="Search..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

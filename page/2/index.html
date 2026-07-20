@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>认真生活，慢慢记录</title><meta name="author" content="Sherry"><meta name="copyright" content="Sherry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="认真生活，慢慢记录">
+<meta property="og:url" content="https://blog.zhangln.com/page/2/index.html">
+<meta property="og:site_name" content="认真生活，慢慢记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.zhangln.com/images/avatar.jpg">
+<meta property="article:author" content="Sherry">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zhangln.com/images/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://blog.zhangln.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '认真生活，慢慢记录',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1F3E54;"></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">认真生活，慢慢记录</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="site-info"><h1 id="site-title">认真生活，慢慢记录</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/" title="OpenSpec+Superpowers协同">OpenSpec+Superpowers协同</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-05-11T16:48:13.000Z" title="发表于 2026-05-12 00:48:13">2026-05-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="content">前言在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？ 简单来说，这两个工作流，在定位上，有以下几点区别  **OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单 **Superpowers (守纪律的执行官)**：它负责将蓝图转化为工程实践，解决“怎么做”的问题，通过强制 TDD（测试驱动开发）、头脑风暴、代码审查等技能，确保每一步都符合工程标准     特性 🔍 OpenSpec (做规划) 🚀 Superpowers (保执行)    核心定位 做规划的总设计师 守纪律的执行官   解决的问题 “做什么” “怎么做”   核心能力 制定规范和蓝图，确保需求对齐与变更可追溯 确保工程纪律与执行质量，强制TDD、头脑风暴等   核心产出 proposal.md, design.md, tasks.md 等结构化文档 可执行的、细分的工作步骤，以及符合规范的最终代码   工作流程 提案 → 实施 → 归档 头脑风...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/05/05/AI%E7%BC%96%E7%A8%8B%E4%B9%8BSuperpowers%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="AI编程之Superpowers工作流">AI编程之Superpowers工作流</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-05-05T14:58:39.000Z" title="发表于 2026-05-05 22:58:39">2026-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="content">与SpecKit、OpenSpec的对比https://github.com/obra/superpowers  Superpowers：给 AI 代理定 “干活的规矩与技能”（怎么干），偏执行层 &#x2F; 工作流强制框架。 SpecKit：GitHub 官方的 “重型规范驱动框架”（按什么规矩干），强流程、强文档、适合大型 &#x2F; 从零开始项目。 OpenSpec：社区驱动的 “轻量规范驱动框架”（改了什么、如何共识），灵活、适合存量 &#x2F; 快速迭代项目。  OpenSpec和SpecKit作为SDD开发范式，目的是让模型在执行任务的时候，有据可依，从而有效避免产生幻觉。 Superpowers是一个全自动开发工作流，其运行逻辑，和传统的SDD完全不同。 SDD趋向于将创意或者对话，转化为结构化的技术规范，以及供AI编程Agent执行的任务清单。 Superpowers的功能更进一步，它为AI提供了一套完整的开发工作流。它能自动引导AI完成头脑风暴、设计，并生成技术规范，制定详细的实施计划。 安装Superpowers 在 Claude Code 中安装 Su...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/05/05/%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-SDD-OpenSpec/" title="无标题">无标题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-05-04T16:28:50.781Z" title="发表于 2026-05-05 00:28:50">2026-05-05</time></span></div><div class="content">与SpecKit的区别两者都是SDD的实现方案，解决的都是先对齐意图，再写代码的问题。但是两者的设计哲学截然不同。 SpecKit对于开发过程有着严格的规范，必须：定义-&gt;计划-&gt;任务-&gt;实施。有着严格的阶段门控。每个阶段都得严格完成后，才能进入到下一阶段。有序、严谨，但是缺乏灵活性。 OpenSpec的流动式工作流，更适合真实项目中的不确定性。 安装 全局安装  123pnpm add -g openspec# 验证openspec -V  初始化项目12# 先进入项目目录，再initopenspec init  回车，选择用到的编程Agent，可以选择多个 比如我选择了 claude 和 codex，就会生成 .codex 或 .claude 两个文件夹。里面包含了openspec要用到的各种skill 还会生成 openspec 文件夹，里面包括了 specs 文件夹，保存已经完成的功能，以及 changes 文件夹，保存正在开发的功能 提案 &#x2F;opsx:propose1/opsx:propose  使用纯前端技术，不使用前端框架，开发一个待办清...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/05/04/%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-SDD-SpecKit/" title="规范驱动开发-SDD-SpecKit">规范驱动开发-SDD-SpecKit</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-05-04T13:25:09.000Z" title="发表于 2026-05-04 21:25:09">2026-05-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="content">SDD对比传统开发范式在SDD之前，我们有以下几种经典的开发范式：  TDD：测试驱动开发。先写失败测试，完成最小实现，最后进行代码重构。关注的是代码的正确性。 BDD：行为驱动开发。用自然语言描述系统行为。Given&#x2F;When&#x2F;Then。核心价值在于消除需求的歧义。关注的是业务验收与共同理解。 DDD：领域驱动开发。统一语言限界上下文。核心关注建模与系统的边界。使系统设计更贴合实际业务场景。  在AI大模型兴起后，Vibe Coding迅速在AI编程领域应用起来。这个时候，SDD-规范驱动开发。就特别适合现在这个AI编程时代。 一句话总结，SDD就是用精准技术规范作为唯一的真相源，驱动设计、编码、测试与文档。 SDD，先把需求、约束、边界条件、验收标准，写成结构化的Spec文档，再让AI Agent基于Spec，去规划、拆解、编码、测试、反复验证。 总之，AI的行为，取决于Spec文档中的精准描述。 人，多做设计决策，少写代码。 AI，负责“搬砖”、 让SDD和TDD、BDD、DDD，做一个本质区别的话， 前者强调的是，人，怎么把控AI，不要让AI写的代码偏...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/" title="专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程">专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-05-03T15:00:44.000Z" title="发表于 2026-05-03 23:00:44">2026-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="content">我直接给你在 Codex 里逐字复制就能用的完整操作步骤、指令、文件结构、执行顺序，完全适配 Codex 的云沙箱、并行执行、命令式风格。 你不用改任何东西，跟着做就能跑通。  一、先给 Codex 下发「总启动指令」（复制直接发）这一步是全局激活三合一模式，Codex 会自动遵守所有规则： 1234567请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。规则：1. GSD：最小可行实现，禁止过度设计、不做无关功能、快速闭环。2. OpenSpec：必须先产出完整规范文档，再写代码。3. Superpowers：必须 TDD 先行，先写测试，再写业务代码，严格做异常处理、参数校验、日志、防重、代码审查。4. 全部在你自带的云沙箱中执行，自动创建文件、运行命令、测试。需求：开发 SpringBoot 用户修改手机号接口，包含：手机号格式校验、短信验证码校验、5秒防重复提交、记录操作日志、更新MySQL用户表。   二、Codex 会自动执行的 第一步：GSD 范围锁定它会自动输出： 12345678910111213已锁定GSD最小范围：✅ 必...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sherry</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nbcoolkid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好好学习，天天向上！！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南">学不完，根本学不完-GSD学习指南</a><time datetime="2026-07-18T14:21:23.000Z" title="发表于 2026-07-18 22:21:23">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南">学不完，根本学不完-Superpowers使用指南</a><time datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南">学不完，根本学不完-Gstack-Skills-使用指南</a><time datetime="2026-07-18T13:41:54.000Z" title="发表于 2026-07-18 21:41:54">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills">学不完，根本学不完-mattpocock-skills</a><time datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/01/HelloWorld-C/" title="HelloWorld-C">HelloWorld-C</a><time datetime="2026-06-01T12:32:31.000Z" title="发表于 2026-06-01 20:32:31">2026-06-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">AI工具</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">AI编程</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">C语言</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">工具</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/gstack/" style="font-size: 1.23em; color: #999ea6">gstack</a> <a href="/tags/SpecKit/" style="font-size: 1.1em; color: #999">SpecKit</a> <a href="/tags/GSD/" style="font-size: 1.17em; color: #999c9f">GSD</a> <a href="/tags/drawio-skills/" style="font-size: 1.1em; color: #999">drawio-skills</a> <a href="/tags/Claude/" style="font-size: 1.37em; color: #99a4b2">Claude</a> <a href="/tags/Skill/" style="font-size: 1.1em; color: #999">Skill</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">C语言</a> <a href="/tags/AI/" style="font-size: 1.43em; color: #99a6b9">AI</a> <a href="/tags/Superpowers/" style="font-size: 1.3em; color: #99a1ac">Superpowers</a> <a href="/tags/Codex/" style="font-size: 1.1em; color: #999">Codex</a> <a href="/tags/Ghostty/" style="font-size: 1.1em; color: #999">Ghostty</a> <a href="/tags/%E7%BB%88%E7%AB%AF/" style="font-size: 1.1em; color: #999">终端</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 1.5em; color: #99a9bf">AI编程</a> <a href="/tags/OpenSpec/" style="font-size: 1.17em; color: #999c9f">OpenSpec</a> <a href="/tags/draw-io/" style="font-size: 1.1em; color: #999">draw.io</a> <a href="/tags/skills/" style="font-size: 1.17em; color: #999c9f">skills</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              七月 2026
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/06/">
+            <span class="card-archive-list-date">
+              六月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/05/">
+            <span class="card-archive-list-date">
+              五月 2026
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">32.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-07-20T18:14:00.809Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Sherry</span></div><div class="footer_custom_text">Powered by Sherry | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备19002332号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="Search..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

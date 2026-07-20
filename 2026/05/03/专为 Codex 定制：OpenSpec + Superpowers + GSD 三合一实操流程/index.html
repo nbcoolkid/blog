@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程 | 认真生活，慢慢记录</title><meta name="author" content="Sherry"><meta name="copyright" content="Sherry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我直接给你在 Codex 里逐字复制就能用的完整操作步骤、指令、文件结构、执行顺序，完全适配 Codex 的云沙箱、并行执行、命令式风格。 你不用改任何东西，跟着做就能跑通。  一、先给 Codex 下发「总启动指令」（复制直接发）这一步是全局激活三合一模式，Codex 会自动遵守所有规则： 1234567请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。规则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程">
+<meta property="og:url" content="https://blog.zhangln.com/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="认真生活，慢慢记录">
+<meta property="og:description" content="我直接给你在 Codex 里逐字复制就能用的完整操作步骤、指令、文件结构、执行顺序，完全适配 Codex 的云沙箱、并行执行、命令式风格。 你不用改任何东西，跟着做就能跑通。  一、先给 Codex 下发「总启动指令」（复制直接发）这一步是全局激活三合一模式，Codex 会自动遵守所有规则： 1234567请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。规则">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.zhangln.com/images/avatar.jpg">
+<meta property="article:published_time" content="2026-05-03T15:00:44.000Z">
+<meta property="article:modified_time" content="2026-05-04T09:21:16.398Z">
+<meta property="article:author" content="Sherry">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="GSD">
+<meta property="article:tag" content="OpenSpec">
+<meta property="article:tag" content="Superpowers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zhangln.com/images/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程",
+  "url": "https://blog.zhangln.com/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/",
+  "image": "https://blog.zhangln.com/images/avatar.jpg",
+  "datePublished": "2026-05-03T15:00:44.000Z",
+  "dateModified": "2026-05-04T09:21:16.398Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sherry",
+      "url": "https://blog.zhangln.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://blog.zhangln.com/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1F3E54;"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">认真生活，慢慢记录</span></a><a class="nav-page-title" href="/"><span class="site-name">专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="post-info"><h1 class="post-title">专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-03T15:00:44.000Z" title="发表于 2026-05-03 23:00:44">2026-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-04T09:21:16.398Z" title="更新于 2026-05-04 17:21:16">2026-05-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>我直接给你<strong>在 Codex 里逐字复制就能用</strong>的完整操作步骤、指令、文件结构、执行顺序，<strong>完全适配 Codex 的云沙箱、并行执行、命令式风格</strong>。</p>
+<p>你不用改任何东西，跟着做就能跑通。</p>
+<hr>
+<h2 id="一、先给-Codex-下发「总启动指令」（复制直接发）"><a href="#一、先给-Codex-下发「总启动指令」（复制直接发）" class="headerlink" title="一、先给 Codex 下发「总启动指令」（复制直接发）"></a>一、先给 Codex 下发「总启动指令」（复制直接发）</h2><p>这一步是<strong>全局激活三合一模式</strong>，Codex 会自动遵守所有规则：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。</span><br><span class="line">规则：</span><br><span class="line">1. GSD：最小可行实现，禁止过度设计、不做无关功能、快速闭环。</span><br><span class="line">2. OpenSpec：必须先产出完整规范文档，再写代码。</span><br><span class="line">3. Superpowers：必须 TDD 先行，先写测试，再写业务代码，严格做异常处理、参数校验、日志、防重、代码审查。</span><br><span class="line">4. 全部在你自带的云沙箱中执行，自动创建文件、运行命令、测试。</span><br><span class="line">需求：开发 SpringBoot 用户修改手机号接口，包含：手机号格式校验、短信验证码校验、5秒防重复提交、记录操作日志、更新MySQL用户表。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、Codex-会自动执行的-第一步：GSD-范围锁定"><a href="#二、Codex-会自动执行的-第一步：GSD-范围锁定" class="headerlink" title="二、Codex 会自动执行的 第一步：GSD 范围锁定"></a>二、Codex 会自动执行的 <strong>第一步：GSD 范围锁定</strong></h2><p>它会自动输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">已锁定GSD最小范围：</span><br><span class="line">✅ 必做：</span><br><span class="line">- 接口 /api/user/phone</span><br><span class="line">- 手机号格式校验</span><br><span class="line">- Redis 验证码校验</span><br><span class="line">- 5秒防重提交</span><br><span class="line">- 更新 user 表 phone 字段</span><br><span class="line">- 写入 operation_log 日志</span><br><span class="line">❌ 不做：</span><br><span class="line">- 不做历史记录表</span><br><span class="line">- 不做复杂权限</span><br><span class="line">- 不做额外封装</span><br><span class="line">- 不做非核心异常</span><br></pre></td></tr></table></figure>
+
+<p>你只需要回复：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">继续执行OpenSpec</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、Codex-自动执行-第二步：OpenSpec-文档生成（Git-化产出）"><a href="#三、Codex-自动执行-第二步：OpenSpec-文档生成（Git-化产出）" class="headerlink" title="三、Codex 自动执行 第二步：OpenSpec 文档生成（Git 化产出）"></a>三、Codex 自动执行 <strong>第二步：OpenSpec 文档生成（Git 化产出）</strong></h2><p>Codex 会<strong>自动在沙箱创建目录和文件</strong>，不需要你手动建。</p>
+<p>它会生成这 4 个文件（自动写好）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openspec/change-user-update-phone/</span><br><span class="line">├── proposal.md</span><br><span class="line">├── spec.md</span><br><span class="line">├── design.md</span><br><span class="line">└── tasks.md</span><br></pre></td></tr></table></figure>
+
+<p>你只需要等它生成完，然后说：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">确认OpenSpec，开始Superpowers编码</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、Codex-自动执行-第三步：Superpowers-强制纪律（TDD-规范）"><a href="#四、Codex-自动执行-第三步：Superpowers-强制纪律（TDD-规范）" class="headerlink" title="四、Codex 自动执行 第三步：Superpowers 强制纪律（TDD + 规范）"></a>四、Codex 自动执行 <strong>第三步：Superpowers 强制纪律（TDD + 规范）</strong></h2><p>这是 Codex 最强的地方：<strong>云沙箱 + 自动执行 + 自动测试</strong>。</p>
+<p>它会严格按 Superpowers 做：</p>
+<ol>
+<li><strong>先写单元测试</strong>（必须）</li>
+<li>再写业务代码</li>
+<li>自动做异常处理、校验、防重</li>
+<li>自动格式化、审查、优化</li>
+<li>自动运行测试</li>
+</ol>
+<p>你<strong>什么都不用做</strong>，只需要等它执行。</p>
+<p>如果它问你：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是否开始实现？</span><br></pre></td></tr></table></figure>
+<p>你直接回：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、Codex-自动执行-第四步：GSD-收尾闭环"><a href="#五、Codex-自动执行-第四步：GSD-收尾闭环" class="headerlink" title="五、Codex 自动执行 第四步：GSD 收尾闭环"></a>五、Codex 自动执行 <strong>第四步：GSD 收尾闭环</strong></h2><p>最后 Codex 会：</p>
+<ul>
+<li>清理无用代码</li>
+<li>精简逻辑</li>
+<li>运行所有测试</li>
+<li>归档 OpenSpec 文档</li>
+<li>输出最终接口说明</li>
+</ul>
+<p>完成后它会告诉你：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">已完成GSD闭环：所有功能实现、测试通过、文档归档。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、你在-Codex-里真正要发的-只有-4-条指令（极简版）"><a href="#六、你在-Codex-里真正要发的-只有-4-条指令（极简版）" class="headerlink" title="六、你在 Codex 里真正要发的 只有 4 条指令（极简版）"></a>六、你在 Codex 里真正要发的 <strong>只有 4 条指令</strong>（极简版）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 启用 GSD+OpenSpec+Superpowers 三合一工作流，需求：SpringBoot 修改手机号接口，含验证码、防重、日志。</span><br><span class="line">2. 继续执行OpenSpec</span><br><span class="line">3. 确认OpenSpec，开始Superpowers编码</span><br><span class="line">4. 开始实现</span><br></pre></td></tr></table></figure>
+
+<p><strong>全程你只发这 4 句话，Codex 自动跑完整个开发流程。</strong></p>
+<hr>
+<h2 id="七、Codex-会自动生成的最终项目结构（你能看到）"><a href="#七、Codex-会自动生成的最终项目结构（你能看到）" class="headerlink" title="七、Codex 会自动生成的最终项目结构（你能看到）"></a>七、Codex 会自动生成的最终项目结构（你能看到）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">├── main/</span><br><span class="line">│   ├── java/.../controller/UserController.java</span><br><span class="line">│   ├── java/.../service/UserService.java</span><br><span class="line">│   ├── java/.../dto/UpdatePhoneDTO.java</span><br><span class="line">│   ├── java/.../entity/OperationLog.java</span><br><span class="line">│   └── resources/application.yml</span><br><span class="line">├── test/.../UserServiceTest.java  ★ Superpowers TDD 测试</span><br><span class="line">openspec/.../spec文档集</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、我再给你一条-Codex-终极一键指令（最省事）"><a href="#八、我再给你一条-Codex-终极一键指令（最省事）" class="headerlink" title="八、我再给你一条 Codex 终极一键指令（最省事）"></a>八、我再给你一条 <strong>Codex 终极一键指令</strong>（最省事）</h2><p>如果你想<strong>一句话启动全部流程</strong>，直接发这条：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按照GSD最小实现、OpenSpec完整规约、Superpowers TDD工程纪律，自动完成用户修改手机号接口：包含参数校验、Redis验证码校验、5秒防重复提交、日志记录、MySQL更新。全程自动规划、自动写文件、自动测试、自动闭环。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="九、最重要：Codex-与-Claude-的区别（你必须知道）"><a href="#九、最重要：Codex-与-Claude-的区别（你必须知道）" class="headerlink" title="九、最重要：Codex 与 Claude 的区别（你必须知道）"></a>九、最重要：Codex 与 Claude 的区别（你必须知道）</h2><p>因为你用的是 <strong>Codex</strong>，所以这套流程会表现为：</p>
+<ul>
+<li><strong>全部在云沙箱自动执行</strong>（不碰你本地）</li>
+<li><strong>自动创建文件、自动运行、自动测试</strong></li>
+<li><strong>速度极快</strong></li>
+<li><strong>多步骤并行执行</strong></li>
+<li><strong>不需要你确认中间步骤</strong>（你只发 4 条指令）</li>
+</ul>
+<p>这就是 <strong>Codex 最适合三合一工作流</strong> 的原因。</p>
+<hr>
+<h2 id="十、Codex-专属预设模板：OpenSpec-Superpowers-GSD-三合一"><a href="#十、Codex-专属预设模板：OpenSpec-Superpowers-GSD-三合一" class="headerlink" title="十、Codex 专属预设模板：OpenSpec + Superpowers + GSD 三合一"></a>十、Codex 专属预设模板：OpenSpec + Superpowers + GSD 三合一</h2><p>做成你每次新建任务都能<strong>一键加载</strong>的那种，包含：</p>
+<ul>
+<li>GSD 规则</li>
+<li>OpenSpec 自动目录</li>
+<li>Superpowers TDD 强制规则</li>
+<li>自动测试</li>
+<li>自动归档</li>
+</ul>
+<h3 id="完整预设内容（直接全量复制）"><a href="#完整预设内容（直接全量复制）" class="headerlink" title="完整预设内容（直接全量复制）"></a>完整预设内容（直接全量复制）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">你是严格遵循 GSD + OpenSpec + Superpowers 三位一体工作流的编程Agent，固定执行流程不可打乱。</span><br><span class="line"></span><br><span class="line">【全局硬性规则】</span><br><span class="line">1. 始终优先 GSD 模式：坚持最小可行实现，禁止过度设计、无效架构堆砌、超前优化、额外加无关功能；只做需求范围内的事，明确标出 In Scope / Out Of Scope。</span><br><span class="line">2. 严格遵循 OpenSpec 流程：任何功能开发、接口迭代、Bug 修复，必须先产出完整 OpenSpec 文档再写代码；不允许无规约直接编码。</span><br><span class="line">3. 严格遵循 Superpowers 工程纪律：强制 TDD 先行，先写单元测试再写业务代码；必须做参数校验、异常捕获、边界场景处理、日志埋点、代码自审；保持单一职责、命名规范、无魔法值、清理冗余代码与调试残留。</span><br><span class="line">4. 全程在 Codex 沙箱自动创建目录、生成文件、编写代码、运行测试、自查闭环，无需用户多余干预。</span><br><span class="line"></span><br><span class="line">【固定执行步骤 强制按顺序走】</span><br><span class="line">第一步：GSD 定范围</span><br><span class="line">梳理需求，明确必做项、明确不做项，锁定最小交付边界，砍掉所有衍生过度需求，向用户确认范围后进入下一步。</span><br><span class="line"></span><br><span class="line">第二步：OpenSpec 出正式规约</span><br><span class="line">自动创建独立目录，固定生成四份文档：</span><br><span class="line">proposal.md 背景+目标+范围</span><br><span class="line">spec.md 业务流程+正常/异常场景+验收标准</span><br><span class="line">design.md 技术方案+接口设计+存储/缓存改动+风险点</span><br><span class="line">tasks.md 按文件/接口/测试拆解有序任务清单</span><br><span class="line">文档完成后等待用户确认，再进入编码阶段。</span><br><span class="line"></span><br><span class="line">第三步：Superpowers 落地开发</span><br><span class="line">严格 100% 对齐 OpenSpec 规约实现，不许私自改需求、加逻辑、改接口；</span><br><span class="line">严格 TDD 先行，先单测后业务代码；</span><br><span class="line">编码遵循当前技术栈最佳规范，统一风格、抽离常量配置、完善异常与日志。</span><br><span class="line"></span><br><span class="line">第四步：GSD 收尾闭环</span><br><span class="line">自测全流程、覆盖所有正常+异常用例；</span><br><span class="line">删除无效代码、冗余注释、调试垃圾；</span><br><span class="line">整理最终项目结构、接口说明；</span><br><span class="line">归档 OpenSpec 文档，输出完成小结，任务闭环结束。</span><br><span class="line"></span><br><span class="line">【交互规范】</span><br><span class="line">你只按四步固定流程推进，中间只做关键节点等待确认，不闲聊、不发散、不额外延伸无关技术；用户只需要回复「继续」「确认」「开始实现」即可推进流程。</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
+<li>打开 Codex 设置 → 自定义指令 &#x2F; 角色预设</li>
+<li>新建一个预设，命名：<strong>三合一标准开发流</strong></li>
+<li>把上面整段粘贴进去保存</li>
+<li>以后新建会话，直接选用这个预设，然后只发业务需求即可</li>
+</ol>
+<h3 id="以后你只用这么用"><a href="#以后你只用这么用" class="headerlink" title="以后你只用这么用"></a>以后你只用这么用</h3><p>选好这个预设，直接发一句比如：</p>
+<blockquote>
+<p>开发SpringBoot用户修改手机号接口，含手机号校验、Redis验证码、5秒防重、操作日志</p>
+</blockquote>
+<p>Codex 会<strong>自动按：GSD定范围 → OpenSpec写四份文档 → Superpowers TDD编码 → GSD收尾</strong> 完整跑完，你中途只需要回复「继续」「确认」就行。</p>
+<h3 id="Codex-专用-极简开局启动话术（直接复制即用）"><a href="#Codex-专用-极简开局启动话术（直接复制即用）" class="headerlink" title="Codex 专用 极简开局启动话术（直接复制即用）"></a>Codex 专用 极简开局启动话术（直接复制即用）</h3><ul>
+<li>通用万能开局句（任何开发需求都能用）</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用预设三合一开发流，请严格按 GSD→OpenSpec→Superpowers→GSD 收尾四步标准流程全自动推进，我只做关键节点确认，不要多余闲聊和额外扩展。</span><br></pre></td></tr></table></figure>
+<p>搭配业务需求直接一条发完（示例模板）<br>你以后只要把后面需求换掉就行：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">启用预设三合一开发流，请严格按 GSD→OpenSpec→Superpowers→GSD 收尾四步标准流程全自动推进，我只做关键节点确认，不要多余闲聊和额外扩展。</span><br><span class="line">需求：开发 SpringBoot 用户修改手机号接口，包含手机号格式校验、Redis短信验证码校验、5秒防重复提交、操作日志记录、更新用户数据表。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>中途推进固定回复（你只记这 3 句就行）</li>
+</ul>
+<p>进入 OpenSpec 阶段：继续<br>看完规约同意开发：确认，开始编码<br>让它严格按 TDD 落地：按 Superpowers 规范 TDD 先行实现</p>
+<ul>
+<li>最简使用总结</li>
+</ul>
+<p>Codex 加载刚才的「三合一标准开发流」预设<br>粘贴上面开局话术 + 你的业务需求<br>全程只用：继续 &#x2F; 确认，开始编码 两句就能走完整套流程。<br>直接保存这几句，以后不用再编任何规则话术，无脑套用即可。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI/">AI</a><a class="post-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/">AI编程</a><a class="post-meta__tags" href="/tags/Superpowers/">Superpowers</a><a class="post-meta__tags" href="/tags/OpenSpec/">OpenSpec</a><a class="post-meta__tags" href="/tags/Codex/">Codex</a><a class="post-meta__tags" href="/tags/GSD/">GSD</a></div><div class="post-share"><div class="social-share" data-image="/images/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/05/04/%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-SDD-SpecKit/" title="规范驱动开发-SDD-SpecKit"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">规范驱动开发-SDD-SpecKit</div></div><div class="info-2"><div class="info-item-1">SDD对比传统开发范式在SDD之前，我们有以下几种经典的开发范式：  TDD：测试驱动开发。先写失败测试，完成最小实现，最后进行代码重构。关注的是代码的正确性。 BDD：行为驱动开发。用自然语言描述系统行为。Given&#x2F;When&#x2F;Then。核心价值在于消除需求的歧义。关注的是业务验收与共同理解。 DDD：领域驱动开发。统一语言限界上下文。核心关注建模与系统的边界。使系统设计更贴合实际业务场景。  在AI大模型兴起后，Vibe Coding迅速在AI编程领域应用起来。这个时候，SDD-规范驱动开发。就特别适合现在这个AI编程时代。 一句话总结，SDD就是用精准技术规范作为唯一的真相源，驱动设计、编码、测试与文档。 SDD，先把需求、约束、边界条件、验收标准，写成结构化的Spec文档，再让AI Agent基于Spec，去规划、拆解、编码、测试、反复验证。 总之，AI的行为，取决于Spec文档中的精准描述。 人，多做设计决策，少写代码。 AI，负责“搬砖”、 让SDD和TDD、BDD、DDD，做一个本质区别的话， 前者强调的是，人，怎么把控AI，不要让AI写的代码偏...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/" title="OpenSpec+Superpowers协同"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-12</div><div class="info-item-2">OpenSpec+Superpowers协同</div></div><div class="info-2"><div class="info-item-1">前言在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？ 简单来说，这两个工作流，在定位上，有以下几点区别  **OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单 **Superpowers (守纪律的执行官)**：它负责将蓝图转化为工程实践，解决“怎么做”的问题，通过强制 TDD（测试驱动开发）、头脑风暴、代码审查等技能，确保每一步都符合工程标准     特性 🔍 OpenSpec (做规划) 🚀 Superpowers (保执行)    核心定位 做规划的总设计师 守纪律的执行官   解决的问题 “做什么” “怎么做”   核心能力 制定规范和蓝图，确保需求对齐与变更可追溯 确保工程纪律与执行质量，强制TDD、头脑风暴等   核心产出 proposal.md, design.md, tasks.md 等结构化文档 可执行的、细分的工作步骤，以及符合规范的最终代码   工作流程 提案 → 实施 → 归档 头脑风...</div></div></div></a><a class="pagination-related" href="/2026/05/05/AI%E7%BC%96%E7%A8%8B%E4%B9%8BSuperpowers%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="AI编程之Superpowers工作流"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-05</div><div class="info-item-2">AI编程之Superpowers工作流</div></div><div class="info-2"><div class="info-item-1">与SpecKit、OpenSpec的对比https://github.com/obra/superpowers  Superpowers：给 AI 代理定 “干活的规矩与技能”（怎么干），偏执行层 &#x2F; 工作流强制框架。 SpecKit：GitHub 官方的 “重型规范驱动框架”（按什么规矩干），强流程、强文档、适合大型 &#x2F; 从零开始项目。 OpenSpec：社区驱动的 “轻量规范驱动框架”（改了什么、如何共识），灵活、适合存量 &#x2F; 快速迭代项目。  OpenSpec和SpecKit作为SDD开发范式，目的是让模型在执行任务的时候，有据可依，从而有效避免产生幻觉。 Superpowers是一个全自动开发工作流，其运行逻辑，和传统的SDD完全不同。 SDD趋向于将创意或者对话，转化为结构化的技术规范，以及供AI编程Agent执行的任务清单。 Superpowers的功能更进一步，它为AI提供了一套完整的开发工作流。它能自动引导AI完成头脑风暴、设计，并生成技术规范，制定详细的实施计划。 安装Superpowers 在 Claude Code 中安装 Su...</div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack%E6%B5%85%E5%B0%9D%E8%BE%84%E6%AD%A2/" title="gstack浅尝辄止"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack浅尝辄止</div></div><div class="info-2"><div class="info-item-1">https://github.com/garrytan/gstack 环境安装 先安装bun 123curl -fsSL https://bun.sh/install | bashsource ~/.zshrcbun -v  bun常用命令 12345bun init        # 新建项目bun i           # 安装依赖bun run xxx     # 运行脚本bun upgrade     # 更新bunbun uninstall   # 卸载  安装gstack 1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup  进入claude后，能看到/office-hours，就说明安装成功了 HelloWorld Install gstack (30 seconds — see below) Run /o...</div></div></div></a><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-18</div><div class="info-item-2">学不完，根本学不完-Superpowers使用指南</div></div><div class="info-2"><div class="info-item-1">Superpowers 使用指南 基于 14 个 Superpowers Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   核心理念Superpowers 不是工具集，而是一套纪律框架。它不提供具体怎么做（那是 mattpocock 和 Gstack 的事），而是定义什么时候做、按什么顺序做、以什么标准做。 14 个 Skill 通过铁律（Iron Law）机制强制执行，违反铁律的操作会被明确禁止。  铁律体系Superpowers 的核心是 5 条铁律，贯穿所有 Skill：    铁律 所属 Skill 内容    Skill 优先 using-superpowers 在任何回复之前必须检查并调用相关 Skill   先思考再动手 brainstorming 没有经过头脑风暴和设计审批，绝不写代码   先测试再实现 test-driven-development 没有失败的测试，绝不写生产代码   先查根因再修复 systematic-debugging 没有根因调查，绝不修复 bug   证据先于断言 verification-before-co...</div></div></div></a><a class="pagination-related" href="/2026/05/04/%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-SDD-SpecKit/" title="规范驱动开发-SDD-SpecKit"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-04</div><div class="info-item-2">规范驱动开发-SDD-SpecKit</div></div><div class="info-2"><div class="info-item-1">SDD对比传统开发范式在SDD之前，我们有以下几种经典的开发范式：  TDD：测试驱动开发。先写失败测试，完成最小实现，最后进行代码重构。关注的是代码的正确性。 BDD：行为驱动开发。用自然语言描述系统行为。Given&#x2F;When&#x2F;Then。核心价值在于消除需求的歧义。关注的是业务验收与共同理解。 DDD：领域驱动开发。统一语言限界上下文。核心关注建模与系统的边界。使系统设计更贴合实际业务场景。  在AI大模型兴起后，Vibe Coding迅速在AI编程领域应用起来。这个时候，SDD-规范驱动开发。就特别适合现在这个AI编程时代。 一句话总结，SDD就是用精准技术规范作为唯一的真相源，驱动设计、编码、测试与文档。 SDD，先把需求、约束、边界条件、验收标准，写成结构化的Spec文档，再让AI Agent基于Spec，去规划、拆解、编码、测试、反复验证。 总之，AI的行为，取决于Spec文档中的精准描述。 人，多做设计决策，少写代码。 AI，负责“搬砖”、 让SDD和TDD、BDD、DDD，做一个本质区别的话， 前者强调的是，人，怎么把控AI，不要让AI写的代码偏...</div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack-readMe%E6%80%BB%E7%BB%93/" title="gstack-readMe总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack-readMe总结</div></div><div class="info-2"><div class="info-item-1">一、核心简介（精简版）gstack 是AI全流程开发工作流，依托Claude Code搭建虚拟研发团队，一站式完成需求梳理→架构设计→编码→审代码→测试→发布→复盘，单人效率比肩团队，MIT开源免费，适配主流AI编程工具。 核心效率数据2026有效逻辑代码产出 &#x3D; 2013年同期240倍，日均效率提升810倍 二、30秒极简安装 依赖：Claude Code、Git、Bun1.0+ 终端执行安装1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup 团队协同（强制启用）1(cd ~/.claude/skills/gstack &amp;&amp; ./setup --team) &amp;&amp; ~/.claude/skills/gstack/bin/gstack-team-init required &amp;...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sherry</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nbcoolkid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好好学习，天天向上！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E7%BB%99-Codex-%E4%B8%8B%E5%8F%91%E3%80%8C%E6%80%BB%E5%90%AF%E5%8A%A8%E6%8C%87%E4%BB%A4%E3%80%8D%EF%BC%88%E5%A4%8D%E5%88%B6%E7%9B%B4%E6%8E%A5%E5%8F%91%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、先给 Codex 下发「总启动指令」（复制直接发）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Codex-%E4%BC%9A%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C%E7%9A%84-%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9AGSD-%E8%8C%83%E5%9B%B4%E9%94%81%E5%AE%9A"><span class="toc-number">2.</span> <span class="toc-text">二、Codex 会自动执行的 第一步：GSD 范围锁定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Codex-%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C-%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9AOpenSpec-%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90%EF%BC%88Git-%E5%8C%96%E4%BA%A7%E5%87%BA%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">三、Codex 自动执行 第二步：OpenSpec 文档生成（Git 化产出）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Codex-%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C-%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9ASuperpowers-%E5%BC%BA%E5%88%B6%E7%BA%AA%E5%BE%8B%EF%BC%88TDD-%E8%A7%84%E8%8C%83%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">四、Codex 自动执行 第三步：Superpowers 强制纪律（TDD + 规范）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Codex-%E8%87%AA%E5%8A%A8%E6%89%A7%E8%A1%8C-%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9AGSD-%E6%94%B6%E5%B0%BE%E9%97%AD%E7%8E%AF"><span class="toc-number">5.</span> <span class="toc-text">五、Codex 自动执行 第四步：GSD 收尾闭环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BD%A0%E5%9C%A8-Codex-%E9%87%8C%E7%9C%9F%E6%AD%A3%E8%A6%81%E5%8F%91%E7%9A%84-%E5%8F%AA%E6%9C%89-4-%E6%9D%A1%E6%8C%87%E4%BB%A4%EF%BC%88%E6%9E%81%E7%AE%80%E7%89%88%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">六、你在 Codex 里真正要发的 只有 4 条指令（极简版）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81Codex-%E4%BC%9A%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%E6%9C%80%E7%BB%88%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%BD%A0%E8%83%BD%E7%9C%8B%E5%88%B0%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">七、Codex 会自动生成的最终项目结构（你能看到）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%88%91%E5%86%8D%E7%BB%99%E4%BD%A0%E4%B8%80%E6%9D%A1-Codex-%E7%BB%88%E6%9E%81%E4%B8%80%E9%94%AE%E6%8C%87%E4%BB%A4%EF%BC%88%E6%9C%80%E7%9C%81%E4%BA%8B%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">八、我再给你一条 Codex 终极一键指令（最省事）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%9C%80%E9%87%8D%E8%A6%81%EF%BC%9ACodex-%E4%B8%8E-Claude-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E4%BD%A0%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">九、最重要：Codex 与 Claude 的区别（你必须知道）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81Codex-%E4%B8%93%E5%B1%9E%E9%A2%84%E8%AE%BE%E6%A8%A1%E6%9D%BF%EF%BC%9AOpenSpec-Superpowers-GSD-%E4%B8%89%E5%90%88%E4%B8%80"><span class="toc-number">10.</span> <span class="toc-text">十、Codex 专属预设模板：OpenSpec + Superpowers + GSD 三合一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E9%A2%84%E8%AE%BE%E5%86%85%E5%AE%B9%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6%EF%BC%89"><span class="toc-number">10.1.</span> <span class="toc-text">完整预设内容（直接全量复制）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">10.2.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%90%8E%E4%BD%A0%E5%8F%AA%E7%94%A8%E8%BF%99%E4%B9%88%E7%94%A8"><span class="toc-number">10.3.</span> <span class="toc-text">以后你只用这么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Codex-%E4%B8%93%E7%94%A8-%E6%9E%81%E7%AE%80%E5%BC%80%E5%B1%80%E5%90%AF%E5%8A%A8%E8%AF%9D%E6%9C%AF%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E5%8D%B3%E7%94%A8%EF%BC%89"><span class="toc-number">10.4.</span> <span class="toc-text">Codex 专用 极简开局启动话术（直接复制即用）</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南">学不完，根本学不完-GSD学习指南</a><time datetime="2026-07-18T14:21:23.000Z" title="发表于 2026-07-18 22:21:23">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南">学不完，根本学不完-Superpowers使用指南</a><time datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南">学不完，根本学不完-Gstack-Skills-使用指南</a><time datetime="2026-07-18T13:41:54.000Z" title="发表于 2026-07-18 21:41:54">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills">学不完，根本学不完-mattpocock-skills</a><time datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/01/HelloWorld-C/" title="HelloWorld-C">HelloWorld-C</a><time datetime="2026-06-01T12:32:31.000Z" title="发表于 2026-06-01 20:32:31">2026-06-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Sherry</span></div><div class="footer_custom_text">Powered by Sherry | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备19002332号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="Search..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

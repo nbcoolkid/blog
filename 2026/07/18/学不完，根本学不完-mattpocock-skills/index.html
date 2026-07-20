@@ -1,0 +1,646 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>学不完，根本学不完-mattpocock-skills | 认真生活，慢慢记录</title><meta name="author" content="Sherry"><meta name="copyright" content="Sherry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="mattpocock&#x2F;skills 介绍来源：github.com&#x2F;mattpocock&#x2F;skills，由 TypeScript 教育者&#x2F;开发者 Matt Pocock 创建。 安装时间：2026-07-17，一次性批量安装 41 个 Skill，安装入口是 setup-matt-pocock-skills。  核心理念这套 Skills 围绕工程工作流设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学不完，根本学不完-mattpocock-skills">
+<meta property="og:url" content="https://blog.zhangln.com/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/index.html">
+<meta property="og:site_name" content="认真生活，慢慢记录">
+<meta property="og:description" content="mattpocock&#x2F;skills 介绍来源：github.com&#x2F;mattpocock&#x2F;skills，由 TypeScript 教育者&#x2F;开发者 Matt Pocock 创建。 安装时间：2026-07-17，一次性批量安装 41 个 Skill，安装入口是 setup-matt-pocock-skills。  核心理念这套 Skills 围绕工程工作流设计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.zhangln.com/images/avatar.jpg">
+<meta property="article:published_time" content="2026-07-18T07:51:08.000Z">
+<meta property="article:modified_time" content="2026-07-18T07:52:27.648Z">
+<meta property="article:author" content="Sherry">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="skills">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zhangln.com/images/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学不完，根本学不完-mattpocock-skills",
+  "url": "https://blog.zhangln.com/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/",
+  "image": "https://blog.zhangln.com/images/avatar.jpg",
+  "datePublished": "2026-07-18T07:51:08.000Z",
+  "dateModified": "2026-07-18T07:52:27.648Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sherry",
+      "url": "https://blog.zhangln.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://blog.zhangln.com/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '学不完，根本学不完-mattpocock-skills',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1F3E54;"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">认真生活，慢慢记录</span></a><a class="nav-page-title" href="/"><span class="site-name">学不完，根本学不完-mattpocock-skills</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="post-info"><h1 class="post-title">学不完，根本学不完-mattpocock-skills</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-18T07:52:27.648Z" title="更新于 2026-07-18 15:52:27">2026-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">4.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="mattpocock-skills-介绍"><a href="#mattpocock-skills-介绍" class="headerlink" title="mattpocock&#x2F;skills 介绍"></a>mattpocock&#x2F;skills 介绍</h1><p><strong>来源</strong>：<a target="_blank" rel="noopener" href="https://github.com/mattpocock/skills">github.com&#x2F;mattpocock&#x2F;skills</a>，由 TypeScript 教育者&#x2F;开发者 <strong>Matt Pocock</strong> 创建。</p>
+<p><strong>安装时间</strong>：2026-07-17，一次性批量安装 41 个 Skill，安装入口是 <code>setup-matt-pocock-skills</code>。</p>
+<hr>
+<h2 id="核心理念"><a href="#核心理念" class="headerlink" title="核心理念"></a>核心理念</h2><p>这套 Skills 围绕<strong>工程工作流</strong>设计，不是零散的工具集，而是一套互相协作的技能体系。核心思路是：</p>
+<ol>
+<li><strong>把模糊想法变成可执行计划</strong>：<code>to-spec</code> → <code>to-tickets</code> → <code>triage</code></li>
+<li><strong>用盘问（grilling）驱动质量</strong>：<code>grilling</code> &#x2F; <code>grill-me</code> &#x2F; <code>grill-with-docs</code> 反复追问你的计划</li>
+<li><strong>用领域建模统一团队语言</strong>：<code>domain-modeling</code> + <code>ubiquitous-language</code></li>
+<li><strong>每个 Skill 职责单一、可组合</strong>：比如 <code>grill-with-docs</code> &#x3D; <code>grilling</code> + <code>domain-modeling</code></li>
+</ol>
+<hr>
+<h2 id="工作流全景"><a href="#工作流全景" class="headerlink" title="工作流全景"></a>工作流全景</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">               setup-matt-pocock-skills（一次性配置）</span><br><span class="line">                      │</span><br><span class="line">      ┌───────────────┼───────────────┐</span><br><span class="line">      ▼               ▼               ▼</span><br><span class="line">  ask-matt        to-spec         wayfinder</span><br><span class="line">（路由器）      （对话→spec）    （大型任务地图）</span><br><span class="line">      │               │</span><br><span class="line">      ▼               ▼</span><br><span class="line"> to-questionnaire  to-tickets</span><br><span class="line">（决策→问卷）      （spec→ticket链）</span><br><span class="line">      │               │</span><br><span class="line">      ▼               ▼</span><br><span class="line">    triage          implement</span><br><span class="line">（ticket状态机）    （执行实现）</span><br><span class="line">      │               │</span><br><span class="line">      ▼               ▼</span><br><span class="line"> code-review ←─── diagnosing-bugs</span><br><span class="line">（双维度审查）     （诊断循环）</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">resolving-merge-conflicts</span><br><span class="line">（解决合并冲突）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="关键-Skill-详解"><a href="#关键-Skill-详解" class="headerlink" title="关键 Skill 详解"></a>关键 Skill 详解</h2><h3 id="工作流引擎"><a href="#工作流引擎" class="headerlink" title="工作流引擎"></a>工作流引擎</h3><ul>
+<li><strong><code>ask-matt</code></strong> — 入口路由器，不知道用哪个 Skill 就先问它</li>
+<li><strong><code>to-spec</code></strong> — 把当前对话直接合成 Spec，无需额外面试</li>
+<li><strong><code>to-tickets</code></strong> — 把 Spec 拆成带依赖关系的 tracer-bullet tickets</li>
+<li><strong><code>triage</code></strong> — 管理 issue 状态机：分类→验证→盘问→写 agent-ready brief</li>
+<li><strong><code>wayfinder</code></strong> — 超大型任务的决策地图，超出单次会话容量时使用</li>
+</ul>
+<h3 id="盘问体系（grill-四件套）"><a href="#盘问体系（grill-四件套）" class="headerlink" title="盘问体系（grill 四件套）"></a>盘问体系（grill 四件套）</h3><ul>
+<li><strong><code>grilling</code></strong> — 核心：对你的计划&#x2F;决策&#x2F;想法进行无情追问，用于压力测试</li>
+<li><strong><code>grill-me</code></strong> — 主动请求被盘问</li>
+<li><strong><code>grill-with-docs</code></strong> — 盘问的同时产出 ADR 和术语表（依赖 <code>grilling</code> + <code>domain-modeling</code>）</li>
+<li><strong><code>batch-grill-me</code></strong> — 批量版，每轮同时抛出所有前沿问题</li>
+</ul>
+<h3 id="设计与架构"><a href="#设计与架构" class="headerlink" title="设计与架构"></a>设计与架构</h3><ul>
+<li><strong><code>codebase-design</code></strong> — 深度模块设计方法论，教你找接口边界、模块深化机会</li>
+<li><strong><code>domain-modeling</code></strong> — 构建领域模型，确定通用语言</li>
+<li><strong><code>improve-codebase-architecture</code></strong> — 扫描代码库→生成 HTML 可视化报告→盘问式深入</li>
+<li><strong><code>code-review</code></strong> — 双维度（Standards + Spec）并行审查，并排报告</li>
+</ul>
+<h3 id="质量保障"><a href="#质量保障" class="headerlink" title="质量保障"></a>质量保障</h3><ul>
+<li><strong><code>tdd</code></strong> — 测试驱动开发，红-绿-重构</li>
+<li><strong><code>diagnosing-bugs</code></strong> — 针对疑难 bug 和性能回归的诊断循环</li>
+<li><strong><code>research</code></strong> — 代理调研，结果输出为 Markdown 文件</li>
+<li><strong><code>prototype</code></strong> — 抛弃式原型验证设计和逻辑</li>
+</ul>
+<h3 id="协作与交接"><a href="#协作与交接" class="headerlink" title="协作与交接"></a>协作与交接</h3><ul>
+<li><strong><code>handoff</code></strong> — 把当前对话压缩成交接文档</li>
+<li><strong><code>claude-handoff</code></strong> — 直接把对话交给后台 agent 立即接手</li>
+<li><strong><code>teach</code></strong> — 在工作空间内教授新技能</li>
+</ul>
+<hr>
+<h2 id="目录结构（按仓库路径）"><a href="#目录结构（按仓库路径）" class="headerlink" title="目录结构（按仓库路径）"></a>目录结构（按仓库路径）</h2><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>数量</th>
+<th>状态</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>skills/engineering/</code></td>
+<td>14</td>
+<td>✅ 正式</td>
+<td>工程核心技能</td>
+</tr>
+<tr>
+<td><code>skills/productivity/</code></td>
+<td>5</td>
+<td>✅ 正式</td>
+<td>生产力工具</td>
+</tr>
+<tr>
+<td><code>skills/in-progress/</code></td>
+<td>10</td>
+<td>🚧 实验</td>
+<td>开发中功能</td>
+</tr>
+<tr>
+<td><code>skills/deprecated/</code></td>
+<td>4</td>
+<td>⚠️ 废弃</td>
+<td>已不再维护</td>
+</tr>
+<tr>
+<td><code>skills/personal/</code></td>
+<td>2</td>
+<td>👤 个人</td>
+<td>Matt 个人使用</td>
+</tr>
+<tr>
+<td><code>skills/misc/</code></td>
+<td>4</td>
+<td>🧩 杂项</td>
+<td>零散工具</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="与其他来源的关系"><a href="#与其他来源的关系" class="headerlink" title="与其他来源的关系"></a>与其他来源的关系</h2><ul>
+<li><strong>不依赖 Gstack</strong>：mattpocock&#x2F;skills 和 Gstack 是两套独立体系，名称无冲突</li>
+<li><strong>不依赖 Superpowers</strong>：Superpowers 是流程规范（计划&#x2F;调试&#x2F;审查的<em>时机</em>），mattpocock 是<em>执行工具</em>（怎么做具体的事）</li>
+<li><strong>配置入口</strong>：使用前需先运行 <code>setup-matt-pocock-skills</code>，它会配置 issue tracker、triage 标签、领域文档布局</li>
+</ul>
+<h1 id="mattpocock-skills-使用指南"><a href="#mattpocock-skills-使用指南" class="headerlink" title="mattpocock&#x2F;skills 使用指南"></a>mattpocock&#x2F;skills 使用指南</h1><blockquote>
+<p>基于各 Skill 的 SKILL.md 完整文档整理，包含触发条件、执行步骤、输入输出和 Skill 间的调用关系。</p>
+</blockquote>
+<hr>
+<h2 id="前置条件：一次性配置"><a href="#前置条件：一次性配置" class="headerlink" title="前置条件：一次性配置"></a>前置条件：一次性配置</h2><p>在使用任何工程 Skill 之前，必须先运行一次：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/setup-matt-pocock-skills</span><br></pre></td></tr></table></figure>
+
+<p>它会做三件事：</p>
+<ol>
+<li><strong>配置 Issue Tracker</strong>（GitHub &#x2F; GitLab &#x2F; 本地 markdown），写入 <code>docs/agents/issue-tracker.md</code></li>
+<li><strong>配置 Triage 标签</strong>（<code>needs-triage</code>、<code>needs-info</code>、<code>ready-for-agent</code>、<code>ready-for-human</code>、<code>wontfix</code>）</li>
+<li><strong>配置领域文档布局</strong>（单上下文 <code>CONTEXT.md</code> + <code>docs/adr/</code>，或 monorepo 多上下文）</li>
+</ol>
+<p>后续所有 Skill 都会读取这些配置。</p>
+<hr>
+<h2 id="Skill-调用关系总图"><a href="#Skill-调用关系总图" class="headerlink" title="Skill 调用关系总图"></a>Skill 调用关系总图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">                 ┌─────────────────────────────────┐</span><br><span class="line">                 │  共享基础设施（被多个 Skill 调用）  │</span><br><span class="line">                 │  grilling · domain-modeling      │</span><br><span class="line">                 │  codebase-design（词汇层）         │</span><br><span class="line">                 └─────────────────────────────────┘</span><br><span class="line">                                 ▲</span><br><span class="line">     ┌───────────┬───────────────┼───────────────┬───────────┐</span><br><span class="line">     │           │               │               │           │</span><br><span class="line">grill-with-docs  triage      wayfinder    improve-       diagnosing</span><br><span class="line">     │           │               │        architecture   -bugs</span><br><span class="line">     ▼           ▼               ▼            │           │</span><br><span class="line">   to-spec    to-tickets     implement        ▼           ▼</span><br><span class="line">     │           │               │      codebase-design  (Phase6</span><br><span class="line">     ▼           ▼               ▼                      handoff)</span><br><span class="line">   (发布到     (发布到         tdd ──► code-review</span><br><span class="line">   tracker)   tracker)          │</span><br><span class="line">                                ▼</span><br><span class="line">                           (红-绿-重构循环)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="场景一：从想法到上线（主工作流）"><a href="#场景一：从想法到上线（主工作流）" class="headerlink" title="场景一：从想法到上线（主工作流）"></a>场景一：从想法到上线（主工作流）</h2><p>这是最完整的路径，适合有明确需求的开发任务。</p>
+<h3 id="第-1-步：盘问-打磨想法"><a href="#第-1-步：盘问-打磨想法" class="headerlink" title="第 1 步：盘问 + 打磨想法"></a>第 1 步：盘问 + 打磨想法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/grill-with-docs</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：对计划或设计进行无情追问，同时生成 ADR 和术语表。</p>
+<p><strong>实际发生了什么</strong>：</p>
+<ul>
+<li>调用 <code>/grilling</code> —— 沿决策树逐层追问，一次一个问题，每个问题给出推荐答案</li>
+<li>同步调用 <code>/domain-modeling</code> —— 当术语达成共识时，实时更新 <code>CONTEXT.md</code>；当做出难以逆转的决策时，创建 ADR</li>
+</ul>
+<p><strong>什么时候用</strong>：你有一个想法但还不够清晰，希望 AI 帮你压力测试并把关键决策记录下来。</p>
+<p><strong>替代方案</strong>：</p>
+<ul>
+<li><code>/grill-me</code> —— 同上但不产出文档（无状态版本）</li>
+<li><code>/batch-grill-me</code> —— 批量版，每轮同时抛出所有前沿问题，逐轮推进</li>
+</ul>
+<h3 id="第-2-步：合成-Spec"><a href="#第-2-步：合成-Spec" class="headerlink" title="第 2 步：合成 Spec"></a>第 2 步：合成 Spec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/to-spec</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：把当前对话中的讨论合成为一份正式 Spec，发布到 Issue Tracker。</p>
+<p><strong>不需要额外面试</strong>——它只合成已经讨论过的内容。</p>
+<p><strong>Spec 包含</strong>：问题陈述、解决方案、用户故事（长列表）、实现决策（模块&#x2F;接口&#x2F;架构&#x2F;API 契约，不含文件路径和代码）、测试决策、Out of Scope。</p>
+<p><strong>发布时会自动打上 <code>ready-for-agent</code> 标签</strong>。</p>
+<h3 id="第-3-步：拆分为-Tickets"><a href="#第-3-步：拆分为-Tickets" class="headerlink" title="第 3 步：拆分为 Tickets"></a>第 3 步：拆分为 Tickets</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/to-tickets</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：把 Spec 拆成一条 tracer-bullet ticket 链，每条 ticket 是贯穿所有层的完整垂直切片。</p>
+<p><strong>关键规则</strong>：</p>
+<ul>
+<li>垂直切片，不是水平切片（每条 ticket 走通 schema→API→UI→test）</li>
+<li>每条 ticket 声明阻塞边（blocked by），形成依赖图</li>
+<li>每条 ticket 适合在一个上下文窗口内完成</li>
+<li>Prefactoring（”先让改动容易做”）的 ticket 排最前面</li>
+<li>发布时按依赖顺序（blocker 优先）</li>
+</ul>
+<h3 id="第-4-步：逐个实现"><a href="#第-4-步：逐个实现" class="headerlink" title="第 4 步：逐个实现"></a>第 4 步：逐个实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/implement</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：执行 ticket 的实现。</p>
+<p><strong>实际步骤</strong>：</p>
+<ol>
+<li>调用 <code>/tdd</code> 进行红-绿循环（先写失败测试，再写最少代码通过）</li>
+<li>在预先约定的 seam 处写测试（不确认 seam 不写测试）</li>
+<li>定期运行类型检查</li>
+<li>全部完成后调用 <code>/code-review</code> 进行双维度审查</li>
+<li>提交到当前分支</li>
+</ol>
+<h3 id="第-5-步：代码审查"><a href="#第-5-步：代码审查" class="headerlink" title="第 5 步：代码审查"></a>第 5 步：代码审查</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/code-review</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：两个子 Agent 并行审查：</p>
+<ul>
+<li><strong>Standards 维度</strong>：代码是否遵循仓库编码规范？是否有 12 种 Fowler 代码坏味道？</li>
+<li><strong>Spec 维度</strong>：代码是否匹配原始 issue&#x2F;PRD？逐条对照 Spec 行</li>
+</ul>
+<p>两篇报告并排呈现，末尾一行总结。</p>
+<hr>
+<h2 id="场景二：排查-Bug"><a href="#场景二：排查-Bug" class="headerlink" title="场景二：排查 Bug"></a>场景二：排查 Bug</h2><h3 id="诊断循环"><a href="#诊断循环" class="headerlink" title="诊断循环"></a>诊断循环</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/diagnosing-bugs</span><br></pre></td></tr></table></figure>
+
+<p><strong>六个阶段的诊断流程</strong>：</p>
+<h4 id="Phase-1：构建反馈回路（核心）"><a href="#Phase-1：构建反馈回路（核心）" class="headerlink" title="Phase 1：构建反馈回路（核心）"></a>Phase 1：构建反馈回路（核心）</h4><p>按优先级尝试建立可复现的信号：</p>
+<ol>
+<li>在能触及 bug 的 seam 处写失败测试</li>
+<li>curl&#x2F;HTTP 脚本打开发服务器</li>
+<li>CLI 调用的 fixture 输入，diff stdout</li>
+<li>无头浏览器脚本</li>
+<li>回放抓取的 trace</li>
+<li>抛弃式 harness</li>
+<li>属性&#x2F;模糊测试循环</li>
+<li><code>git bisect run</code> 二分定位</li>
+<li>新旧版本对比</li>
+<li>人工交互 bash 脚本（最后手段）</li>
+</ol>
+<p>然后<strong>收紧</strong>回路：更快、信号更清晰、更确定。</p>
+<p><strong>不完成此阶段绝不进入假设阶段</strong>。</p>
+<h4 id="Phase-2：复现-最小化"><a href="#Phase-2：复现-最小化" class="headerlink" title="Phase 2：复现 + 最小化"></a>Phase 2：复现 + 最小化</h4><ul>
+<li>确认回路能复现用户报告的精确故障模式</li>
+<li><strong>最小化</strong>：一次删一个元素，重跑回路，直到每个剩余元素都是必要的</li>
+</ul>
+<h4 id="Phase-3：提出假设"><a href="#Phase-3：提出假设" class="headerlink" title="Phase 3：提出假设"></a>Phase 3：提出假设</h4><ul>
+<li>生成 3-5 个排序的、可证伪的假设</li>
+<li>格式：”如果 X 是原因，那么改变 Y 会让 bug 消失 &#x2F; 改变 Z 会让它更糟”</li>
+<li>展示排序列表给用户，等待确认后再测试</li>
+</ul>
+<h4 id="Phase-4：探测验证"><a href="#Phase-4：探测验证" class="headerlink" title="Phase 4：探测验证"></a>Phase 4：探测验证</h4><ul>
+<li>每次只改变一个变量</li>
+<li>偏好：debugger&#x2F;REPL &gt; 定向日志 &gt; 绝不”全量日志然后 grep”</li>
+<li>调试日志统一加 <code>[DEBUG-xxxx]</code> 前缀便于清理</li>
+</ul>
+<h4 id="Phase-5：修复-回归测试"><a href="#Phase-5：修复-回归测试" class="headerlink" title="Phase 5：修复 + 回归测试"></a>Phase 5：修复 + 回归测试</h4><ul>
+<li><strong>先写回归测试再修</strong>（只有在存在正确 seam 时才写）</li>
+<li>把最小化复现转为失败测试，看它失败，应用修复，看它通过</li>
+</ul>
+<h4 id="Phase-6：清理-复盘"><a href="#Phase-6：清理-复盘" class="headerlink" title="Phase 6：清理 + 复盘"></a>Phase 6：清理 + 复盘</h4><ul>
+<li>移除所有 <code>[DEBUG-...]</code> 代码</li>
+<li>在 commit&#x2F;PR 中陈述正确的假设</li>
+<li><strong>问：什么本可以防止这个 bug？</strong> 如果答案是架构改动 → 交给 <code>/improve-codebase-architecture</code></li>
+</ul>
+<hr>
+<h2 id="场景三：改进架构"><a href="#场景三：改进架构" class="headerlink" title="场景三：改进架构"></a>场景三：改进架构</h2><h3 id="扫描深化机会"><a href="#扫描深化机会" class="headerlink" title="扫描深化机会"></a>扫描深化机会</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/improve-codebase-architecture</span><br></pre></td></tr></table></figure>
+
+<p><strong>三步走</strong>：</p>
+<h4 id="Step-1：探索"><a href="#Step-1：探索" class="headerlink" title="Step 1：探索"></a>Step 1：探索</h4><ul>
+<li>如果用户指定了方向（模块&#x2F;子系统&#x2F;痛点），就走那个方向</li>
+<li>否则回溯 <code>git log --oneline</code> 找热点（反复出现的文件&#x2F;区域）</li>
+<li>读取 <code>CONTEXT.md</code> 和 ADR</li>
+<li>使用 Explore Agent 遍历代码库，记录摩擦点：<ul>
+<li>理解一个概念需要在很多小模块间跳转？</li>
+<li>模块浅薄（接口几乎和实现一样复杂）？</li>
+<li>纯函数被提取出来只为可测试性，但真正的 bug 藏在调用方式里？</li>
+<li>紧耦合模块跨 seam 泄漏？</li>
+<li>哪些部分未测试或难测试？</li>
+</ul>
+</li>
+<li>对可疑的浅薄模块应用<strong>删除测试</strong>（想象删除它，复杂度是消失还是扩散到 N 个调用者？）</li>
+</ul>
+<h4 id="Step-2：生成-HTML-可视化报告"><a href="#Step-2：生成-HTML-可视化报告" class="headerlink" title="Step 2：生成 HTML 可视化报告"></a>Step 2：生成 HTML 可视化报告</h4><ul>
+<li>自包含 HTML，写入系统临时目录，自动打开</li>
+<li>每张候选卡片含：涉及文件、问题描述、解决方案、收益（locality + leverage + tests）、Before&#x2F;After 图、推荐强度徽章（Strong &#x2F; Worth exploring &#x2F; Speculative）</li>
+<li>用 CONTEXT.md 的领域词汇和 codebase-design 的架构词汇</li>
+<li>末尾有 Top Recommendation</li>
+</ul>
+<h4 id="Step-3：盘问式深入"><a href="#Step-3：盘问式深入" class="headerlink" title="Step 3：盘问式深入"></a>Step 3：盘问式深入</h4><ul>
+<li>用户选一个候选 → 运行 <code>/grilling</code> 走决策树</li>
+<li>同步运行 <code>/domain-modeling</code> 更新 CONTEXT.md 和 ADR</li>
+<li>想探索替代接口？运行 <code>/codebase-design</code> 的 design-it-twice 模式</li>
+</ul>
+<h3 id="词汇参考"><a href="#词汇参考" class="headerlink" title="词汇参考"></a>词汇参考</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/codebase-design</span><br></pre></td></tr></table></figure>
+
+<p>这不是一个流程，而是一个<strong>共享词汇表</strong>——定义”模块”、”接口”、”深度”、”seam”、”adapter”、”leverage”、”locality”等术语的精确含义。被 <code>improve-codebase-architecture</code> 等 Skill 消费。</p>
+<p><strong>核心原则</strong>：</p>
+<ul>
+<li><strong>深度</strong>是接口的属性，不是实现的属性</li>
+<li><strong>删除测试</strong>：想象删除模块。如果复杂度消失，它是透传；如果分散到 N 个调用者，它物有所值</li>
+<li><strong>接口 &#x3D; 测试面</strong></li>
+<li>一个 adapter &#x3D; 假想 seam；两个 adapter &#x3D; 真实 seam</li>
+</ul>
+<hr>
+<h2 id="场景四：处理外部-Issue-和-PR"><a href="#场景四：处理外部-Issue-和-PR" class="headerlink" title="场景四：处理外部 Issue 和 PR"></a>场景四：处理外部 Issue 和 PR</h2><h3 id="Triage-状态机"><a href="#Triage-状态机" class="headerlink" title="Triage 状态机"></a>Triage 状态机</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/triage</span><br></pre></td></tr></table></figure>
+
+<p><strong>两种模式</strong>：</p>
+<h4 id="模式-A：查看待处理列表"><a href="#模式-A：查看待处理列表" class="headerlink" title="模式 A：查看待处理列表"></a>模式 A：查看待处理列表</h4><ul>
+<li>查询 Issue Tracker</li>
+<li>分三个桶展示：未标记、<code>needs-triage</code>、<code>needs-info</code>（按最早优先）</li>
+<li>PR 也会纳入范围，标注 <code>[PR]</code> 或 <code>[issue]</code></li>
+</ul>
+<h4 id="模式-B：处理具体-Issue-PR"><a href="#模式-B：处理具体-Issue-PR" class="headerlink" title="模式 B：处理具体 Issue&#x2F;PR"></a>模式 B：处理具体 Issue&#x2F;PR</h4><ol>
+<li><p>收集上下文</p>
+<p>：读完整 issue&#x2F;PR（正文+评论+标签），对 PR 还要读 diff。做两项检查：</p>
+<ul>
+<li>冗余检查：按领域概念搜索是否已有实现 → 有则 <code>wontfix</code>（已实现）</li>
+<li>先前拒绝检查：读 <code>.out-of-scope/*.md</code> → 有相似则标出</li>
+</ul>
+</li>
+<li><p><strong>推荐</strong>：给出分类 + 状态建议，附推理和代码库摘要</p>
+</li>
+<li><p><strong>验证</strong>：对 bug 按步骤复现；对 PR 确认 diff 做了它声称的事 —— checkout 后跑测试</p>
+</li>
+<li><p><strong>盘问</strong>（如需要）：运行 <code>/grilling</code> + <code>/domain-modeling</code></p>
+</li>
+<li><p>应用结果</p>
+<p>：</p>
+<ul>
+<li><code>ready-for-agent</code>：写 agent brief（按 <code>AGENT-BRIEF.md</code> 模板）</li>
+<li><code>ready-for-human</code>：同上结构但说明为什么不能委托给 agent</li>
+<li><code>needs-info</code>：写 triage 笔记（”已有结论” + “还需要你提供”）</li>
+<li><code>wontfix</code>：关闭并附原因。已实现→指出位置；拒绝的 bug→礼貌解释；拒绝的 enhancement→写入 <code>.out-of-scope/</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>状态机规则</strong>：每个 triage 后的 issue 必须恰好持有一个分类标签（<code>bug</code>&#x2F;<code>enhancement</code>）+ 一个状态标签（<code>needs-triage</code>&#x2F;<code>needs-info</code>&#x2F;<code>ready-for-agent</code>&#x2F;<code>ready-for-human</code>&#x2F;<code>wontfix</code>）。</p>
+<hr>
+<h2 id="场景五：超大型任务（绿野仙踪）"><a href="#场景五：超大型任务（绿野仙踪）" class="headerlink" title="场景五：超大型任务（绿野仙踪）"></a>场景五：超大型任务（绿野仙踪）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/wayfinder</span><br></pre></td></tr></table></figure>
+
+<p><strong>核心概念</strong>：<strong>地图</strong>是一个标记为 <code>wayfinder:map</code> 的 issue，其子 issue 是<strong>决策 ticket</strong>（不是构建切片）。</p>
+<p><strong>Ticket 类型</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>解决方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Research</td>
+<td>读文档&#x2F;API 获取事实</td>
+<td><code>/research</code> 子 Agent，无人交互</td>
+</tr>
+<tr>
+<td>Prototype</td>
+<td>廉价的具体产物来反应</td>
+<td><code>/prototype</code></td>
+</tr>
+<tr>
+<td>Grilling</td>
+<td>对话决策（默认）</td>
+<td><code>/grilling</code> + <code>/domain-modeling</code></td>
+</tr>
+<tr>
+<td>Task</td>
+<td>手动操作解锁决策（如注册服务）</td>
+<td>人工或 Agent</td>
+</tr>
+</tbody></table>
+<p><strong>流程</strong>：</p>
+<h3 id="绘制地图（新想法）"><a href="#绘制地图（新想法）" class="headerlink" title="绘制地图（新想法）"></a>绘制地图（新想法）</h3><ol>
+<li>运行 <code>/grilling</code> + <code>/domain-modeling</code> 确定<strong>目的地</strong></li>
+<li>广度优先盘问，暴露开放决策和第一步</li>
+<li>创建地图 issue → 创建子 issue → 连线阻塞边</li>
+<li>对 research ticket 并行启动子 Agent</li>
+<li><strong>停</strong>——绘制是一个会话，不解决任何东西</li>
+</ol>
+<h3 id="穿越地图（已有地图）"><a href="#穿越地图（已有地图）" class="headerlink" title="穿越地图（已有地图）"></a>穿越地图（已有地图）</h3><ol>
+<li>加载地图 → 选下一个 frontier ticket → <strong>认领</strong>（assign 给自己）</li>
+<li>按类型解决（默认 <code>/grilling</code> + <code>/domain-modeling</code>）</li>
+<li>记录结论：在 ticket 中回复结论、关闭 issue、追加到地图的 Decisions-so-far</li>
+<li>添加新浮现的 ticket、从迷雾中毕业新决策</li>
+</ol>
+<p><strong>关键规则</strong>：每次会话最多解决一个 ticket（research ticket 除外）。</p>
+<hr>
+<h2 id="场景六：快速原型验证"><a href="#场景六：快速原型验证" class="headerlink" title="场景六：快速原型验证"></a>场景六：快速原型验证</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/prototype</span><br></pre></td></tr></table></figure>
+
+<p><strong>两种分支</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>问题类型</th>
+<th>分支</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“这个逻辑&#x2F;状态模型对吗？”</td>
+<td>LOGIC.md</td>
+<td>构建微型交互终端应用，推动状态机通过难以推理的情况</td>
+</tr>
+<tr>
+<td>“这个 UI 应该长什么样？”</td>
+<td>UI.md</td>
+<td>在单一路由上生成多个截然不同的 UI 变体，通过 URL search param 和浮动底栏切换</td>
+</tr>
+</tbody></table>
+<p><strong>原则</strong>：</p>
+<ul>
+<li>从第一天就是抛弃式的，标记清楚</li>
+<li>一条命令运行（用项目的 task runner）</li>
+<li>默认不持久化</li>
+<li>跳过所有打磨（无测试、最小错误处理、无抽象）</li>
+<li>每次操作&#x2F;切换后展示状态</li>
+</ul>
+<p><strong>完成后</strong>：把验证过的决策折叠进真实代码，原型提交到抛弃式分支（不合并主分支），在 issue 中记录结论。</p>
+<hr>
+<h2 id="场景七：知识调研"><a href="#场景七：知识调研" class="headerlink" title="场景七：知识调研"></a>场景七：知识调研</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/research</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：启动<strong>后台 Agent</strong> 调研问题，结果写为 Markdown 文件存入仓库。</p>
+<p><strong>规则</strong>：</p>
+<ul>
+<li>每条声明必须追溯到<strong>一手来源</strong>（官方文档、源码、Spec、第一方 API）</li>
+<li>文件遵循仓库已有的笔记惯例</li>
+<li>Agent 在后台跑，用户可以继续工作</li>
+</ul>
+<hr>
+<h2 id="场景八：跨会话协作"><a href="#场景八：跨会话协作" class="headerlink" title="场景八：跨会话协作"></a>场景八：跨会话协作</h2><h3 id="保存交接文档"><a href="#保存交接文档" class="headerlink" title="保存交接文档"></a>保存交接文档</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/handoff</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把当前对话压缩为 Markdown 交接文档</li>
+<li>包含 “建议调用的 Skill” 部分</li>
+<li>引用而不重复已在其他产物（Spec&#x2F;Plan&#x2F;ADR&#x2F;Issue&#x2F;Commit&#x2F;Diff）中的内容</li>
+<li>脱敏（API key&#x2F;密码&#x2F;PII）</li>
+<li>保存到操作系统临时目录（<strong>不是</strong>当前工作空间）</li>
+</ul>
+<h3 id="立即启动后台-Agent-接手"><a href="#立即启动后台-Agent-接手" class="headerlink" title="立即启动后台 Agent 接手"></a>立即启动后台 Agent 接手</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/claude-handoff</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>同上，但直接启动后台 Agent 继续工作</li>
+<li>等价于 <code>claude --bg --name &quot;&lt;描述性名称&gt;&quot; &quot;&lt;交接摘要&gt;&quot;</code></li>
+<li>用户通过 <code>claude agents</code> 管理</li>
+</ul>
+<hr>
+<h2 id="场景九：教与学"><a href="#场景九：教与学" class="headerlink" title="场景九：教与学"></a>场景九：教与学</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/teach</span><br></pre></td></tr></table></figure>
+
+<p><strong>做什么</strong>：建立多会话的教学工作空间。</p>
+<p><strong>文件结构</strong>：</p>
+<ul>
+<li><code>MISSION.md</code> —— 学习动机（如果不清，先盘问用户）</li>
+<li><code>RESOURCES.md</code> —— 高质量可信资源（绝不信任模型参数化知识）</li>
+<li><code>./learning-records/*.md</code> —— 编号的 ADR 风格学习记录（最近发展区）</li>
+<li><code>./lessons/*.html</code> —— 编号的自包含 HTML 课程（短小精美，含交互元素）</li>
+<li><code>./reference/*.html</code> —— 压缩速查表、词汇表、算法</li>
+<li><code>./assets/*</code> —— 可复用组件（样式表、测验组件、模拟器、图表 helper）</li>
+<li><code>NOTES.md</code> —— 用户偏好和备忘</li>
+</ul>
+<p><strong>三支柱哲学</strong>：Knowledge（可信来源）→ Skills（交互式课程+检索练习&#x2F;间隔&#x2F;交错）→ Wisdom（社区互动）</p>
+<hr>
+<h2 id="场景十：其他独立工具"><a href="#场景十：其他独立工具" class="headerlink" title="场景十：其他独立工具"></a>场景十：其他独立工具</h2><h3 id="生成交互式-Bash-向导"><a href="#生成交互式-Bash-向导" class="headerlink" title="生成交互式 Bash 向导"></a>生成交互式 Bash 向导</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/wizard</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>读取仓库配置（<code>.env</code>、<code>.env.example</code>、<code>README</code>、<code>docker-compose*</code>、GitHub Actions secrets）</li>
+<li>按阶段映射流程 —— 打开哪个 URL、做什么、捕获什么值、填入哪个变量</li>
+<li>基于 <code>template.sh</code> 生成脚本（含完整的进度条、确认门、跨平台 URL 打开、隐藏输入、幂等 <code>.env</code> 写入）</li>
+<li>静态验证（<code>bash -n</code> + <code>shellcheck</code>），告知用户如何运行</li>
+</ol>
+<h3 id="解决合并冲突"><a href="#解决合并冲突" class="headerlink" title="解决合并冲突"></a>解决合并冲突</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/resolving-merge-conflicts</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>查看当前状态（冲突文件和历史）</li>
+<li>为每个冲突找到<strong>一手来源</strong>——深入理解每处改动的原始意图</li>
+<li>逐块解决 —— 能保留双方意图就保留，不能就选匹配合并目标的那个</li>
+<li>跑自动化检查（类型检查→测试→格式化）</li>
+<li>完成 merge&#x2F;rebase</li>
+</ol>
+<h3 id="路由到合适-Skill"><a href="#路由到合适-Skill" class="headerlink" title="路由到合适 Skill"></a>路由到合适 Skill</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ask-matt</span><br></pre></td></tr></table></figure>
+
+<p>不知道用哪个 Skill？直接问，它会根据你的情况推荐合适的 Skill 或工作流链路。</p>
+<hr>
+<h2 id="Skill-依赖层级总结"><a href="#Skill-依赖层级总结" class="headerlink" title="Skill 依赖层级总结"></a>Skill 依赖层级总结</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Layer 0（基础设施 — 被几乎所有上层 Skill 消费）</span><br><span class="line">  ├── codebase-design    词汇层：模块/接口/深度/seam/adapter</span><br><span class="line">  ├── domain-modeling    维护 CONTEXT.md 和 ADR</span><br><span class="line">  └── grilling           无情盘问协议</span><br><span class="line"></span><br><span class="line">Layer 1（组合 Skill — 调用 Layer 0）</span><br><span class="line">  ├── grill-with-docs    = grilling + domain-modeling</span><br><span class="line">  ├── triage             调用 grilling + domain-modeling</span><br><span class="line">  ├── wayfinder          调用 grilling + domain-modeling + research + prototype</span><br><span class="line">  └── improve-codebase-architecture  调用 codebase-design + grilling + domain-modeling</span><br><span class="line"></span><br><span class="line">Layer 2（流程 Skill — 消费 Layer 1 的输出）</span><br><span class="line">  ├── to-spec            合成对话 → 发布 Spec（消费 CONTEXT.md）</span><br><span class="line">  ├── to-tickets         拆分 Spec → Ticket 链（消费 CONTEXT.md）</span><br><span class="line">  └── implement          执行 ticket → tdd → code-review</span><br><span class="line"></span><br><span class="line">Layer 3（专项 Skill — 独立或响应事件）</span><br><span class="line">  ├── diagnosing-bugs    6 阶段诊断 → Phase 6 可能 handoff 给 improve-codebase-architecture</span><br><span class="line">  ├── tdd                红-绿循环（消费 CONTEXT.md）→ refactor 阶段交给 code-review</span><br><span class="line">  ├── code-review        双维度并行审查（Standards + Spec）</span><br><span class="line">  ├── prototype          LOGIC / UI 分支原型</span><br><span class="line">  ├── research           后台调研子 Agent</span><br><span class="line">  ├── resolving-merge-conflicts  合并冲突解决</span><br><span class="line">  └── wizard             交互式 Bash 向导生成</span><br><span class="line"></span><br><span class="line">Layer 4（元技能 — 路由和配置）</span><br><span class="line">  ├── setup-matt-pocock-skills  一次性配置入口</span><br><span class="line">  ├── ask-matt           路由到合适 Skill</span><br><span class="line">  ├── handoff / claude-handoff  跨会话交接</span><br><span class="line">  └── teach              多会话教学框架</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Matt-skills非常适合强的模型，比如fable,GPT-5.6, 他的每个技能提示词非常少，强调的是让模型自身发挥更强的能力。<br> &#x2F;grill-with-doc-&gt;&#x2F;to-spec-&gt;&#x2F;to-tickets-&gt;&#x2F;implement。对于正常开发完全够了，中间的这几步也可以完全不用。<br> codex经常会触发&#x2F;implement, 也就是每次让他去执行某个功能开发的时候，会触发 &#x2F;implement技能，这个技能会从tdd开始然后到最后的code-review, 一个非常好的开发流程。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/">AI编程</a><a class="post-meta__tags" href="/tags/skills/">skills</a></div><div class="post-share"><div class="social-share" data-image="/images/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">学不完，根本学不完-Gstack-Skills-使用指南</div></div><div class="info-2"><div class="info-item-1">Gstack Skills 使用指南 基于 54 个 Gstack Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   体系概览Gstack 是一套完整的软件开发框架，覆盖从想法到上线的全生命周期。54 个 Skill 共享统一的 preamble 基础设施（更新检查、会话跟踪、遥测、上下文恢复、学习记录等）。 核心基础设施   组件 说明    $B (browse daemon) 无头 Chromium 浏览器引擎，browse&#x2F;scrape&#x2F;canary&#x2F;benchmark&#x2F;diagram&#x2F;qa-only&#x2F;design-review&#x2F;devex-review 共用   $D (designer) 设计变体生成器，design-shotgun&#x2F;design-html&#x2F;design-review 共用   $P (make-pdf) Markdown→PDF 引擎   gbrain 知识库系统，setup-gbrain&#x2F;sync-gbrain 管理   ...</div></div></div></a><a class="pagination-related" href="/2026/06/01/HelloWorld-C/" title="HelloWorld-C"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">HelloWorld-C</div></div><div class="info-2"><div class="info-item-1"> 太久没写C语言了，闹着玩玩  hello.c 代码说明12345#include &lt;stdio.h&gt;   // 引入标准输入输出库，才能使用 printfint main() &#123;          // 程序的入口函数    printf(&quot;Hello, World!\n&quot;);  // 打印字符串到终端，\n 是换行符    return 0;         // 告诉操作系统程序正常退出&#125;  编译与运行本机环境：macOS，已安装 Apple Clang（Apple 版 C 编译器）。 编译把 hello.c 编译成可执行文件 hello： 1clang hello.c -o hello  运行1./hello  一条命令完成1clang hello.c -o hello &amp;&amp; ./hello  参数说明   参数 含义    clang C 语言编译器   hello.c 源代码文件   -o hello 指定输出的可执行文件名为 hello（不指定则默认输出 a.out）   ./hello 运行当前目...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-18</div><div class="info-item-2">学不完，根本学不完-Gstack-Skills-使用指南</div></div><div class="info-2"><div class="info-item-1">Gstack Skills 使用指南 基于 54 个 Gstack Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   体系概览Gstack 是一套完整的软件开发框架，覆盖从想法到上线的全生命周期。54 个 Skill 共享统一的 preamble 基础设施（更新检查、会话跟踪、遥测、上下文恢复、学习记录等）。 核心基础设施   组件 说明    $B (browse daemon) 无头 Chromium 浏览器引擎，browse&#x2F;scrape&#x2F;canary&#x2F;benchmark&#x2F;diagram&#x2F;qa-only&#x2F;design-review&#x2F;devex-review 共用   $D (designer) 设计变体生成器，design-shotgun&#x2F;design-html&#x2F;design-review 共用   $P (make-pdf) Markdown→PDF 引擎   gbrain 知识库系统，setup-gbrain&#x2F;sync-gbrain 管理   ...</div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack-readMe%E6%80%BB%E7%BB%93/" title="gstack-readMe总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack-readMe总结</div></div><div class="info-2"><div class="info-item-1">一、核心简介（精简版）gstack 是AI全流程开发工作流，依托Claude Code搭建虚拟研发团队，一站式完成需求梳理→架构设计→编码→审代码→测试→发布→复盘，单人效率比肩团队，MIT开源免费，适配主流AI编程工具。 核心效率数据2026有效逻辑代码产出 &#x3D; 2013年同期240倍，日均效率提升810倍 二、30秒极简安装 依赖：Claude Code、Git、Bun1.0+ 终端执行安装1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup 团队协同（强制启用）1(cd ~/.claude/skills/gstack &amp;&amp; ./setup --team) &amp;&amp; ~/.claude/skills/gstack/bin/gstack-team-init required &amp;...</div></div></div></a><a class="pagination-related" href="/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/" title="专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-03</div><div class="info-item-2">专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程</div></div><div class="info-2"><div class="info-item-1">我直接给你在 Codex 里逐字复制就能用的完整操作步骤、指令、文件结构、执行顺序，完全适配 Codex 的云沙箱、并行执行、命令式风格。 你不用改任何东西，跟着做就能跑通。  一、先给 Codex 下发「总启动指令」（复制直接发）这一步是全局激活三合一模式，Codex 会自动遵守所有规则： 1234567请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。规则：1. GSD：最小可行实现，禁止过度设计、不做无关功能、快速闭环。2. OpenSpec：必须先产出完整规范文档，再写代码。3. Superpowers：必须 TDD 先行，先写测试，再写业务代码，严格做异常处理、参数校验、日志、防重、代码审查。4. 全部在你自带的云沙箱中执行，自动创建文件、运行命令、测试。需求：开发 SpringBoot 用户修改手机号接口，包含：手机号格式校验、短信验证码校验、5秒防重复提交、记录操作日志、更新MySQL用户表。   二、Codex 会自动执行的 第一步：GSD 范围锁定它会自动输出： 12345678910111213已锁定GSD最小范围：✅ 必...</div></div></div></a><a class="pagination-related" href="/2026/05/31/understand-anything/" title="understand-anything"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-31</div><div class="info-item-2">understand-anything</div></div><div class="info-2"><div class="info-item-1">https://github.com/Lum1104/Understand-Anything/blob/main/READMEs/README.zh-CN.md 分析项目，形成知识图。 适合大型历史遗留项目。 安装 原生claude code上安装是最简单的  12/plugin marketplace add Lum1104/Understand-Anything/plugin install understand-anything   如果是其他平台的话  1curl -fsSL https://raw.githubusercontent.com/Lum1104/Understand-Anything/main/install.sh | bash    使用 生成知识图谱  进入项目路径后/understand --language=zh 这个过程会很慢，需要慢慢等  打开知识图谱  /understand-dashboard  就会自动在浏览器打开了 </div></div></div></a><a class="pagination-related" href="/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/" title="OpenSpec+Superpowers协同"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-12</div><div class="info-item-2">OpenSpec+Superpowers协同</div></div><div class="info-2"><div class="info-item-1">前言在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？ 简单来说，这两个工作流，在定位上，有以下几点区别  **OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单 **Superpowers (守纪律的执行官)**：它负责将蓝图转化为工程实践，解决“怎么做”的问题，通过强制 TDD（测试驱动开发）、头脑风暴、代码审查等技能，确保每一步都符合工程标准     特性 🔍 OpenSpec (做规划) 🚀 Superpowers (保执行)    核心定位 做规划的总设计师 守纪律的执行官   解决的问题 “做什么” “怎么做”   核心能力 制定规范和蓝图，确保需求对齐与变更可追溯 确保工程纪律与执行质量，强制TDD、头脑风暴等   核心产出 proposal.md, design.md, tasks.md 等结构化文档 可执行的、细分的工作步骤，以及符合规范的最终代码   工作流程 提案 → 实施 → 归档 头脑风...</div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack%E6%B5%85%E5%B0%9D%E8%BE%84%E6%AD%A2/" title="gstack浅尝辄止"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack浅尝辄止</div></div><div class="info-2"><div class="info-item-1">https://github.com/garrytan/gstack 环境安装 先安装bun 123curl -fsSL https://bun.sh/install | bashsource ~/.zshrcbun -v  bun常用命令 12345bun init        # 新建项目bun i           # 安装依赖bun run xxx     # 运行脚本bun upgrade     # 更新bunbun uninstall   # 卸载  安装gstack 1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup  进入claude后，能看到/office-hours，就说明安装成功了 HelloWorld Install gstack (30 seconds — see below) Run /o...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sherry</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nbcoolkid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好好学习，天天向上！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mattpocock-skills-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">mattpocock&#x2F;skills 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%90%86%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">核心理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%85%A8%E6%99%AF"><span class="toc-number">1.2.</span> <span class="toc-text">工作流全景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE-Skill-%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">关键 Skill 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E"><span class="toc-number">1.3.1.</span> <span class="toc-text">工作流引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%98%E9%97%AE%E4%BD%93%E7%B3%BB%EF%BC%88grill-%E5%9B%9B%E4%BB%B6%E5%A5%97%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">盘问体系（grill 四件套）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.3.</span> <span class="toc-text">设计与架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C"><span class="toc-number">1.3.4.</span> <span class="toc-text">质量保障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E4%BD%9C%E4%B8%8E%E4%BA%A4%E6%8E%A5"><span class="toc-number">1.3.5.</span> <span class="toc-text">协作与交接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%EF%BC%88%E6%8C%89%E4%BB%93%E5%BA%93%E8%B7%AF%E5%BE%84%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">目录结构（按仓库路径）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E5%85%B6%E4%BB%96%E6%9D%A5%E6%BA%90%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.5.</span> <span class="toc-text">与其他来源的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mattpocock-skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-number">2.</span> <span class="toc-text">mattpocock&#x2F;skills 使用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%EF%BC%9A%E4%B8%80%E6%AC%A1%E6%80%A7%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">前置条件：一次性配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Skill-%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB%E6%80%BB%E5%9B%BE"><span class="toc-number">2.2.</span> <span class="toc-text">Skill 调用关系总图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80%EF%BC%9A%E4%BB%8E%E6%83%B3%E6%B3%95%E5%88%B0%E4%B8%8A%E7%BA%BF%EF%BC%88%E4%B8%BB%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">场景一：从想法到上线（主工作流）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-1-%E6%AD%A5%EF%BC%9A%E7%9B%98%E9%97%AE-%E6%89%93%E7%A3%A8%E6%83%B3%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">第 1 步：盘问 + 打磨想法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-2-%E6%AD%A5%EF%BC%9A%E5%90%88%E6%88%90-Spec"><span class="toc-number">2.3.2.</span> <span class="toc-text">第 2 步：合成 Spec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-3-%E6%AD%A5%EF%BC%9A%E6%8B%86%E5%88%86%E4%B8%BA-Tickets"><span class="toc-number">2.3.3.</span> <span class="toc-text">第 3 步：拆分为 Tickets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-4-%E6%AD%A5%EF%BC%9A%E9%80%90%E4%B8%AA%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.4.</span> <span class="toc-text">第 4 步：逐个实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-5-%E6%AD%A5%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5"><span class="toc-number">2.3.5.</span> <span class="toc-text">第 5 步：代码审查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C%EF%BC%9A%E6%8E%92%E6%9F%A5-Bug"><span class="toc-number">2.4.</span> <span class="toc-text">场景二：排查 Bug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8A%E6%96%AD%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.4.1.</span> <span class="toc-text">诊断循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Phase-1%EF%BC%9A%E6%9E%84%E5%BB%BA%E5%8F%8D%E9%A6%88%E5%9B%9E%E8%B7%AF%EF%BC%88%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="toc-number">2.4.1.1.</span> <span class="toc-text">Phase 1：构建反馈回路（核心）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Phase-2%EF%BC%9A%E5%A4%8D%E7%8E%B0-%E6%9C%80%E5%B0%8F%E5%8C%96"><span class="toc-number">2.4.1.2.</span> <span class="toc-text">Phase 2：复现 + 最小化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Phase-3%EF%BC%9A%E6%8F%90%E5%87%BA%E5%81%87%E8%AE%BE"><span class="toc-number">2.4.1.3.</span> <span class="toc-text">Phase 3：提出假设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Phase-4%EF%BC%9A%E6%8E%A2%E6%B5%8B%E9%AA%8C%E8%AF%81"><span class="toc-number">2.4.1.4.</span> <span class="toc-text">Phase 4：探测验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Phase-5%EF%BC%9A%E4%BF%AE%E5%A4%8D-%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95"><span class="toc-number">2.4.1.5.</span> <span class="toc-text">Phase 5：修复 + 回归测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Phase-6%EF%BC%9A%E6%B8%85%E7%90%86-%E5%A4%8D%E7%9B%98"><span class="toc-number">2.4.1.6.</span> <span class="toc-text">Phase 6：清理 + 复盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%89%EF%BC%9A%E6%94%B9%E8%BF%9B%E6%9E%B6%E6%9E%84"><span class="toc-number">2.5.</span> <span class="toc-text">场景三：改进架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E6%B7%B1%E5%8C%96%E6%9C%BA%E4%BC%9A"><span class="toc-number">2.5.1.</span> <span class="toc-text">扫描深化机会</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1%EF%BC%9A%E6%8E%A2%E7%B4%A2"><span class="toc-number">2.5.1.1.</span> <span class="toc-text">Step 1：探索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2%EF%BC%9A%E7%94%9F%E6%88%90-HTML-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%A5%E5%91%8A"><span class="toc-number">2.5.1.2.</span> <span class="toc-text">Step 2：生成 HTML 可视化报告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3%EF%BC%9A%E7%9B%98%E9%97%AE%E5%BC%8F%E6%B7%B1%E5%85%A5"><span class="toc-number">2.5.1.3.</span> <span class="toc-text">Step 3：盘问式深入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E6%B1%87%E5%8F%82%E8%80%83"><span class="toc-number">2.5.2.</span> <span class="toc-text">词汇参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%9B%9B%EF%BC%9A%E5%A4%84%E7%90%86%E5%A4%96%E9%83%A8-Issue-%E5%92%8C-PR"><span class="toc-number">2.6.</span> <span class="toc-text">场景四：处理外部 Issue 和 PR</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Triage-%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="toc-number">2.6.1.</span> <span class="toc-text">Triage 状态机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F-A%EF%BC%9A%E6%9F%A5%E7%9C%8B%E5%BE%85%E5%A4%84%E7%90%86%E5%88%97%E8%A1%A8"><span class="toc-number">2.6.1.1.</span> <span class="toc-text">模式 A：查看待处理列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F-B%EF%BC%9A%E5%A4%84%E7%90%86%E5%85%B7%E4%BD%93-Issue-PR"><span class="toc-number">2.6.1.2.</span> <span class="toc-text">模式 B：处理具体 Issue&#x2F;PR</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%94%EF%BC%9A%E8%B6%85%E5%A4%A7%E5%9E%8B%E4%BB%BB%E5%8A%A1%EF%BC%88%E7%BB%BF%E9%87%8E%E4%BB%99%E8%B8%AA%EF%BC%89"><span class="toc-number">2.7.</span> <span class="toc-text">场景五：超大型任务（绿野仙踪）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9C%B0%E5%9B%BE%EF%BC%88%E6%96%B0%E6%83%B3%E6%B3%95%EF%BC%89"><span class="toc-number">2.7.1.</span> <span class="toc-text">绘制地图（新想法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BF%E8%B6%8A%E5%9C%B0%E5%9B%BE%EF%BC%88%E5%B7%B2%E6%9C%89%E5%9C%B0%E5%9B%BE%EF%BC%89"><span class="toc-number">2.7.2.</span> <span class="toc-text">穿越地图（已有地图）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%85%AD%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%8E%9F%E5%9E%8B%E9%AA%8C%E8%AF%81"><span class="toc-number">2.8.</span> <span class="toc-text">场景六：快速原型验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%83%EF%BC%9A%E7%9F%A5%E8%AF%86%E8%B0%83%E7%A0%94"><span class="toc-number">2.9.</span> <span class="toc-text">场景七：知识调研</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%85%AB%EF%BC%9A%E8%B7%A8%E4%BC%9A%E8%AF%9D%E5%8D%8F%E4%BD%9C"><span class="toc-number">2.10.</span> <span class="toc-text">场景八：跨会话协作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E4%BA%A4%E6%8E%A5%E6%96%87%E6%A1%A3"><span class="toc-number">2.10.1.</span> <span class="toc-text">保存交接文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%8B%E5%8D%B3%E5%90%AF%E5%8A%A8%E5%90%8E%E5%8F%B0-Agent-%E6%8E%A5%E6%89%8B"><span class="toc-number">2.10.2.</span> <span class="toc-text">立即启动后台 Agent 接手</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B9%9D%EF%BC%9A%E6%95%99%E4%B8%8E%E5%AD%A6"><span class="toc-number">2.11.</span> <span class="toc-text">场景九：教与学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%8D%81%EF%BC%9A%E5%85%B6%E4%BB%96%E7%8B%AC%E7%AB%8B%E5%B7%A5%E5%85%B7"><span class="toc-number">2.12.</span> <span class="toc-text">场景十：其他独立工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%BA%A4%E4%BA%92%E5%BC%8F-Bash-%E5%90%91%E5%AF%BC"><span class="toc-number">2.12.1.</span> <span class="toc-text">生成交互式 Bash 向导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="toc-number">2.12.2.</span> <span class="toc-text">解决合并冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%88%B0%E5%90%88%E9%80%82-Skill"><span class="toc-number">2.12.3.</span> <span class="toc-text">路由到合适 Skill</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Skill-%E4%BE%9D%E8%B5%96%E5%B1%82%E7%BA%A7%E6%80%BB%E7%BB%93"><span class="toc-number">2.13.</span> <span class="toc-text">Skill 依赖层级总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南">学不完，根本学不完-GSD学习指南</a><time datetime="2026-07-18T14:21:23.000Z" title="发表于 2026-07-18 22:21:23">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南">学不完，根本学不完-Superpowers使用指南</a><time datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南">学不完，根本学不完-Gstack-Skills-使用指南</a><time datetime="2026-07-18T13:41:54.000Z" title="发表于 2026-07-18 21:41:54">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills">学不完，根本学不完-mattpocock-skills</a><time datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/01/HelloWorld-C/" title="HelloWorld-C">HelloWorld-C</a><time datetime="2026-06-01T12:32:31.000Z" title="发表于 2026-06-01 20:32:31">2026-06-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Sherry</span></div><div class="footer_custom_text">Powered by Sherry | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备19002332号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="Search..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

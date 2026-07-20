@@ -1,0 +1,580 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>学不完，根本学不完-Superpowers使用指南 | 认真生活，慢慢记录</title><meta name="author" content="Sherry"><meta name="copyright" content="Sherry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Superpowers 使用指南 基于 14 个 Superpowers Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   核心理念Superpowers 不是工具集，而是一套纪律框架。它不提供具体怎么做（那是 mattpocock 和 Gstack 的事），而是定义什么时候做、按什么顺序做、以什么标准做。 14 个 Skill 通过铁律（Iron Law）机制强制执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学不完，根本学不完-Superpowers使用指南">
+<meta property="og:url" content="https://blog.zhangln.com/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="认真生活，慢慢记录">
+<meta property="og:description" content="Superpowers 使用指南 基于 14 个 Superpowers Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   核心理念Superpowers 不是工具集，而是一套纪律框架。它不提供具体怎么做（那是 mattpocock 和 Gstack 的事），而是定义什么时候做、按什么顺序做、以什么标准做。 14 个 Skill 通过铁律（Iron Law）机制强制执行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.zhangln.com/images/avatar.jpg">
+<meta property="article:published_time" content="2026-07-18T13:44:20.000Z">
+<meta property="article:modified_time" content="2026-07-18T13:44:55.964Z">
+<meta property="article:author" content="Sherry">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="Superpowers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zhangln.com/images/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学不完，根本学不完-Superpowers使用指南",
+  "url": "https://blog.zhangln.com/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/",
+  "image": "https://blog.zhangln.com/images/avatar.jpg",
+  "datePublished": "2026-07-18T13:44:20.000Z",
+  "dateModified": "2026-07-18T13:44:55.964Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sherry",
+      "url": "https://blog.zhangln.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://blog.zhangln.com/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '学不完，根本学不完-Superpowers使用指南',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1F3E54;"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">认真生活，慢慢记录</span></a><a class="nav-page-title" href="/"><span class="site-name">学不完，根本学不完-Superpowers使用指南</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="post-info"><h1 class="post-title">学不完，根本学不完-Superpowers使用指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-18T13:44:55.964Z" title="更新于 2026-07-18 21:44:55">2026-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI%E7%BC%96%E7%A8%8B/">AI编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Superpowers-使用指南"><a href="#Superpowers-使用指南" class="headerlink" title="Superpowers 使用指南"></a>Superpowers 使用指南</h1><blockquote>
+<p>基于 14 个 Superpowers Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。</p>
+</blockquote>
+<hr>
+<h2 id="核心理念"><a href="#核心理念" class="headerlink" title="核心理念"></a>核心理念</h2><p>Superpowers 不是工具集，而是一套<strong>纪律框架</strong>。它不提供具体怎么做（那是 mattpocock 和 Gstack 的事），而是定义<strong>什么时候做、按什么顺序做、以什么标准做</strong>。</p>
+<p>14 个 Skill 通过<strong>铁律</strong>（Iron Law）机制强制执行，违反铁律的操作会被明确禁止。</p>
+<hr>
+<h2 id="铁律体系"><a href="#铁律体系" class="headerlink" title="铁律体系"></a>铁律体系</h2><p>Superpowers 的核心是 5 条铁律，贯穿所有 Skill：</p>
+<table>
+<thead>
+<tr>
+<th>铁律</th>
+<th>所属 Skill</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Skill 优先</strong></td>
+<td><code>using-superpowers</code></td>
+<td>在任何回复之前必须检查并调用相关 Skill</td>
+</tr>
+<tr>
+<td><strong>先思考再动手</strong></td>
+<td><code>brainstorming</code></td>
+<td>没有经过头脑风暴和设计审批，绝不写代码</td>
+</tr>
+<tr>
+<td><strong>先测试再实现</strong></td>
+<td><code>test-driven-development</code></td>
+<td>没有失败的测试，绝不写生产代码</td>
+</tr>
+<tr>
+<td><strong>先查根因再修复</strong></td>
+<td><code>systematic-debugging</code></td>
+<td>没有根因调查，绝不修复 bug</td>
+</tr>
+<tr>
+<td><strong>证据先于断言</strong></td>
+<td><code>verification-before-completion</code></td>
+<td>没有运行验证命令并确认输出，绝不声称完成</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="完整工作流链路"><a href="#完整工作流链路" class="headerlink" title="完整工作流链路"></a>完整工作流链路</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">                   using-superpowers（每条链路都从这里开始）</span><br><span class="line">                           │</span><br><span class="line">            ┌──────────────┼──────────────┐</span><br><span class="line">            ▼              ▼              ▼</span><br><span class="line">      创造性工作        遇到 Bug        代码审查</span><br><span class="line">            │              │              │</span><br><span class="line">      brainstorming   systematic-    requesting-</span><br><span class="line">            │         debugging     code-review</span><br><span class="line">            ▼              │              │</span><br><span class="line">      writing-plans        ▼              ▼</span><br><span class="line">            │         test-driven-   receiving-</span><br><span class="line">    ┌───────┴───────┐  development   code-review</span><br><span class="line">    ▼               ▼       │</span><br><span class="line">subagent-      executing-   ▼</span><br><span class="line">driven-        plans    verification-</span><br><span class="line">development       │      before-</span><br><span class="line">    │              │      completion</span><br><span class="line">    └──────┬───────┘</span><br><span class="line">           ▼</span><br><span class="line">    finishing-a-</span><br><span class="line">    development-branch</span><br></pre></td></tr></table></figure>
+
+<p><strong>支撑技能（贯穿全局）</strong>：</p>
+<ul>
+<li><code>using-git-worktrees</code> — 工作空间隔离</li>
+<li><code>dispatching-parallel-agents</code> — 并行任务分发</li>
+<li><code>writing-skills</code> — 编写新 Skill（用 TDD 方法论）</li>
+</ul>
+<hr>
+<h2 id="场景一：从想法到代码（主工作流）"><a href="#场景一：从想法到代码（主工作流）" class="headerlink" title="场景一：从想法到代码（主工作流）"></a>场景一：从想法到代码（主工作流）</h2><h3 id="第-0-步：一切从这里开始"><a href="#第-0-步：一切从这里开始" class="headerlink" title="第 0 步：一切从这里开始"></a>第 0 步：一切从这里开始</h3><p><code>using-superpowers</code> 是<strong>元技能</strong>，在任何对话开始时自动触发。它确保你在做任何事之前先检查并调用相关 Skill。</p>
+<p><strong>规则</strong>：</p>
+<ul>
+<li>即使只是澄清问题，也要先检查 Skill</li>
+<li>遇到 bug → 先调 <code>systematic-debugging</code>，不能直接提议修复</li>
+<li>创造性工作 → 先调 <code>brainstorming</code>，不能直接写代码</li>
+</ul>
+<p><strong>红牌警告</strong>（以下想法意味着你在违规）：</p>
+<table>
+<thead>
+<tr>
+<th>你在想</th>
+<th>你在违规</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“这只是个简单问题”</td>
+<td>问题也是任务，检查 Skill</td>
+</tr>
+<tr>
+<td>“让我先探索代码库”</td>
+<td>Skill 告诉你如何探索，先检查</td>
+</tr>
+<tr>
+<td>“这个不需要正式 Skill”</td>
+<td>如果有 Skill，就用它</td>
+</tr>
+<tr>
+<td>“我记得这个 Skill”</td>
+<td>Skill 会演进，读当前版本</td>
+</tr>
+<tr>
+<td>“Skill 大材小用”</td>
+<td>简单的事会变复杂，用它</td>
+</tr>
+</tbody></table>
+<h3 id="第-1-步：头脑风暴"><a href="#第-1-步：头脑风暴" class="headerlink" title="第 1 步：头脑风暴"></a>第 1 步：头脑风暴</h3><p><code>brainstorming</code> 在<strong>任何创造性工作之前必须使用</strong>。</p>
+<p><strong>硬门</strong>：在呈现设计并获得用户批准之前，<strong>绝不调用实现 Skill、写代码、搭建项目或执行任何实现操作</strong>。</p>
+<p><strong>9 步清单</strong>：</p>
+<ol>
+<li><strong>探索项目上下文</strong> — 检查文件、文档、近期提交</li>
+<li><strong>适时提供视觉伴侣</strong> — 仅在问题确实需要用图说明时</li>
+<li><strong>逐一询问澄清问题</strong> — 推荐用选择题，了解目的&#x2F;约束&#x2F;成功标准</li>
+<li><strong>提出 2-3 个方案</strong> — 含权衡分析和推荐</li>
+<li><strong>分章节呈现设计</strong> — 架构、组件、数据流、错误处理、测试，每章需用户批准</li>
+<li><strong>写设计文档</strong> → 保存到 <code>docs/superpowers/specs/YYYY-MM-DD-&lt;topic&gt;-design.md</code> 并提交</li>
+<li><strong>Spec 自审</strong> — 检查占位符、矛盾、歧义、范围</li>
+<li><strong>用户审查</strong> — 让用户阅读 spec 文件后再继续</li>
+<li><strong>转交实现</strong> → 调用 <code>writing-plans</code></li>
+</ol>
+<p><strong>YAGNI 原则</strong>：无情删除不必要的东西。即使是”简单”项目也不能跳过——未审查的假设在简单项目中造成的浪费最大。</p>
+<h3 id="第-2-步：编写实现计划"><a href="#第-2-步：编写实现计划" class="headerlink" title="第 2 步：编写实现计划"></a>第 2 步：编写实现计划</h3><p><code>writing-plans</code> 在有 spec 之后、写代码之前使用。</p>
+<p><strong>流程</strong>：</p>
+<ol>
+<li>宣布使用 writing-plans</li>
+<li><strong>范围检查</strong>：如果 spec 覆盖多个独立子系统，建议拆分为独立计划</li>
+<li><strong>文件结构映射</strong>：设计哪些文件创建&#x2F;修改，各自负责什么</li>
+<li><strong>写计划文档</strong> → <code>docs/superpowers/plans/YYYY-MM-DD-&lt;feature-name&gt;.md</code></li>
+</ol>
+<p><strong>计划文档格式</strong>：</p>
+<ul>
+<li><strong>Header</strong>：Goal &#x2F; Architecture &#x2F; Tech Stack &#x2F; Global Constraints</li>
+<li><strong>每个 Task</strong>：Files（create&#x2F;modify&#x2F;test）&#x2F; Interfaces（consumes&#x2F;produces）&#x2F; 复选框步骤（含精确代码、命令和预期输出）</li>
+</ul>
+<p><strong>“不留占位符”规则</strong>：绝不写 TBD、TODO、”稍后实现”、”添加适当的错误处理”、”类似 Task N”。假设实现者技能熟练但对你的工具链和问题域一无所知。每个 task 是最小单位，有独立的测试周期。</p>
+<p><strong>执行交接</strong>：完成后提供两个选项：</p>
+<ul>
+<li><strong>推荐</strong> → <code>subagent-driven-development</code>（同会话执行）</li>
+<li><strong>备选</strong> → <code>executing-plans</code>（独立会话执行）</li>
+</ul>
+<h3 id="第-3-步：执行计划"><a href="#第-3-步：执行计划" class="headerlink" title="第 3 步：执行计划"></a>第 3 步：执行计划</h3><h4 id="方案-A：子-Agent-驱动（推荐）"><a href="#方案-A：子-Agent-驱动（推荐）" class="headerlink" title="方案 A：子 Agent 驱动（推荐）"></a>方案 A：子 Agent 驱动（推荐）</h4><p><code>subagent-driven-development</code> 在子 Agent 可用时使用。</p>
+<p><strong>流程</strong>：</p>
+<ol>
+<li><strong>预检</strong>：扫描计划一次，检查 task 之间的冲突和全局约束。一次性呈现所有冲突。</li>
+<li><strong>为每个 task</strong>：<ul>
+<li>运行 <code>scripts/task-brief PLAN_FILE N</code> 提取 task</li>
+<li>派遣实现子 Agent（使用 <code>implementer-prompt.md</code> 模板，子 Agent 应使用 <code>test-driven-development</code>）</li>
+<li>实现→测试→提交→自审</li>
+<li>生成审查包：<code>scripts/review-package BASE HEAD</code></li>
+<li>派遣 task 审查子 Agent（使用 <code>task-reviewer-prompt.md</code>）</li>
+<li>如 Critical&#x2F;Important 问题 → 派遣修复子 Agent → 重新审查</li>
+<li>标记完成</li>
+</ul>
+</li>
+<li><strong>全部完成后</strong>：派遣最终全分支代码审查</li>
+<li><strong>调用</strong> <code>finishing-a-development-branch</code></li>
+</ol>
+<p><strong>持续执行</strong>：task 之间不停顿。只在阻塞、无法解决的歧义或完成时停止。</p>
+<p><strong>耐久性</strong>：进度写入 <code>.superpowers/sdd/progress.md</code>，跨上下文压缩也能恢复。</p>
+<p><strong>模型选择</strong>：机械任务用最便宜模型、协调用中档、架构&#x2F;设计用最强。</p>
+<p><strong>红牌警告</strong>：禁止并行派遣多个实现子 Agent、禁止跳过 task 审查、禁止让实现者读整个计划（用 <code>task-brief</code>）、禁止替审查者预判发现。</p>
+<h4 id="方案-B：内联执行（无子-Agent-时）"><a href="#方案-B：内联执行（无子-Agent-时）" class="headerlink" title="方案 B：内联执行（无子 Agent 时）"></a>方案 B：内联执行（无子 Agent 时）</h4><p><code>executing-plans</code> 在子 Agent 不可用时使用。</p>
+<p><strong>流程</strong>：</p>
+<ol>
+<li>加载并审查计划，批判性阅读，有疑虑就提出</li>
+<li>逐个执行 task：标记 in_progress → 严格按步骤执行 → 运行验证 → 标记完成</li>
+<li>全部完成后调用 <code>finishing-a-development-branch</code></li>
+</ol>
+<p><strong>阻塞时停止</strong>：遇到阻塞、计划缺口、不清晰的指令或反复验证失败时停下来。绝不在 main&#x2F;master 分支上开始实现。</p>
+<h3 id="第-4-步：测试驱动开发"><a href="#第-4-步：测试驱动开发" class="headerlink" title="第 4 步：测试驱动开发"></a>第 4 步：测试驱动开发</h3><p><code>test-driven-development</code> 在实现任何功能或 bug 修复时使用。</p>
+<p><strong>铁律：没有失败的测试，绝不写生产代码。</strong></p>
+<p><strong>红-绿-重构循环</strong>：</p>
+<ol>
+<li><strong>RED</strong>：写一个最小的失败测试</li>
+<li><strong>验证 RED（强制）</strong>：跑测试，确认它因正确的原因失败（功能缺失，不是笔误）</li>
+<li><strong>GREEN</strong>：写最简单的代码让测试通过。不添加额外功能、不重构、不”改进”</li>
+<li><strong>验证 GREEN（强制）</strong>：跑测试，确认通过且其他测试不受影响</li>
+<li><strong>REFACTOR</strong>：清理代码（消除重复、改进命名、提取助手），保持测试绿色，不添加行为</li>
+<li><strong>重复</strong>：下一个行为的下一个失败测试</li>
+</ol>
+<p><strong>例外</strong>（需询问用户）：抛弃式原型、生成的代码、配置文件。</p>
+<p><strong>反模式警报</strong>（详见 <code>testing-anti-patterns.md</code>）：</p>
+<ul>
+<li>测试 mock 的行为</li>
+<li>为生产类添加仅测试用的方法</li>
+<li>不理解依赖就 mock</li>
+<li>事后补测试（回答”这做什么？”而非”这应该做什么？”）</li>
+</ul>
+<h3 id="第-5-步：代码审查"><a href="#第-5-步：代码审查" class="headerlink" title="第 5 步：代码审查"></a>第 5 步：代码审查</h3><p><code>requesting-code-review</code> 在以下情况触发：</p>
+<ul>
+<li><strong>强制</strong>：子 Agent 驱动的每个 task 完成后、主要功能完成后、合并到 main 前</li>
+<li><strong>可选</strong>：卡住时（新视角）、重构前（基线检查）、修复复杂 bug 后</li>
+</ul>
+<p><strong>流程</strong>：</p>
+<ol>
+<li>确定 <code>BASE_SHA</code> 和 <code>HEAD_SHA</code></li>
+<li>派遣代码审查子 Agent（使用 <code>code-reviewer.md</code> 模板）</li>
+<li>按反馈行动：Critical → 立即修复 &#x2F; Important → 继续前修复 &#x2F; Minor → 记录稍后处理</li>
+</ol>
+<p><code>receiving-code-review</code> 在收到审查反馈时使用。</p>
+<p><strong>响应模式</strong>：</p>
+<ol>
+<li>完整阅读反馈，不反应</li>
+<li>用自己的话重述需求（或提问）</li>
+<li>对照代码库实际验证</li>
+<li>评估：在这个代码库中技术上是否合理？</li>
+<li>回应：技术性确认或有理由的反对</li>
+<li>逐项实现，每项单独测试</li>
+</ol>
+<p><strong>多项反馈的处理顺序</strong>：先澄清不清楚的 → 阻塞性（破坏&#x2F;安全）→ 简单修复（笔误&#x2F;import）→ 复杂修复（重构&#x2F;逻辑）。</p>
+<h3 id="第-6-步：完成分支"><a href="#第-6-步：完成分支" class="headerlink" title="第 6 步：完成分支"></a>第 6 步：完成分支</h3><p><code>finishing-a-development-branch</code> 在实现完成、所有测试通过时使用。</p>
+<p><strong>流程</strong>：</p>
+<ol>
+<li><strong>验证测试</strong>：运行测试套件。失败→停止。通过→继续。</li>
+<li><strong>检测环境</strong>：正常仓库 &#x2F; 命名分支 worktree &#x2F; Detached HEAD</li>
+<li><strong>确定 base 分支</strong></li>
+<li><strong>呈现 4 个选项</strong>（Detached HEAD 只有 3 个）：<ul>
+<li>选项 1：本地合并回 base 分支</li>
+<li>选项 2：推送并创建 Pull Request</li>
+<li>选项 3：保持分支不动</li>
+<li>选项 4：丢弃此工作</li>
+</ul>
+</li>
+<li><strong>执行选择</strong>：按选定选项的预设工作流执行</li>
+<li><strong>清理</strong>：仅选项 1 和 4。检查来源——Superpowers 管理的 worktree 由它清理，Harness 管理的由 Harness 清理</li>
+</ol>
+<hr>
+<h2 id="场景二：调试"><a href="#场景二：调试" class="headerlink" title="场景二：调试"></a>场景二：调试</h2><p><code>systematic-debugging</code> 在遇到<strong>任何</strong> bug、测试失败或异常行为时使用。</p>
+<p><strong>铁律：没有根因调查，绝不修复。</strong></p>
+<p><strong>四种强制阶段，按序完成</strong>：</p>
+<h3 id="Phase-1：根因调查（在任何修复之前）"><a href="#Phase-1：根因调查（在任何修复之前）" class="headerlink" title="Phase 1：根因调查（在任何修复之前）"></a>Phase 1：根因调查（在任何修复之前）</h3><ol>
+<li>仔细读错误信息（堆栈、行号、错误码）</li>
+<li>确定复现（可靠触发器、精确步骤、每次都能复现？）</li>
+<li>检查近期变更（git diff、提交、新依赖、配置变更、环境）</li>
+<li>多组件系统：在每个组件边界插诊断日志</li>
+<li>追溯数据流（参考 <code>root-cause-tracing.md</code> 做反向追踪）</li>
+</ol>
+<h3 id="Phase-2：模式分析"><a href="#Phase-2：模式分析" class="headerlink" title="Phase 2：模式分析"></a>Phase 2：模式分析</h3><ol>
+<li>在同代码库中找正常工作的例子</li>
+<li>对比参考实现（完全读懂，不是略读）</li>
+<li>识别正常和异常的差异</li>
+<li>理解依赖（组件、设置、配置、假设）</li>
+</ol>
+<h3 id="Phase-3：假设与测试"><a href="#Phase-3：假设与测试" class="headerlink" title="Phase 3：假设与测试"></a>Phase 3：假设与测试</h3><ol>
+<li>形成单一假设：”我认为 X 是根因，因为 Y”</li>
+<li>最小化测试——最小可能的改动，一次一个变量</li>
+<li>验证后再继续</li>
+<li>不确定时，说”我不理解 X”，寻求帮助</li>
+</ol>
+<h3 id="Phase-4：实现"><a href="#Phase-4：实现" class="headerlink" title="Phase 4：实现"></a>Phase 4：实现</h3><ol>
+<li>创建失败测试用例（调用 <code>test-driven-development</code>）</li>
+<li>实现<strong>单一</strong>修复（一次一个改动，不做”顺手”改进）</li>
+<li>验证修复（测试通过、无回归、问题解决）</li>
+<li><strong>如果修复无效</strong>：<ul>
+<li>&lt;3 次尝试 → 回到 Phase 1</li>
+<li><strong>≥3 次修复失败 → 停止，质疑架构</strong>。和用户讨论后再尝试。模式表明架构问题。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="场景三：并行任务"><a href="#场景三：并行任务" class="headerlink" title="场景三：并行任务"></a>场景三：并行任务</h2><p><code>dispatching-parallel-agents</code> 在 2+ 个独立任务时使用。</p>
+<p><strong>使用条件</strong>：</p>
+<ul>
+<li>多个测试文件失败且根因不同</li>
+<li>多个子系统独立出问题</li>
+<li>每个问题无需其他问题的上下文就能理解</li>
+<li>3+ 个独立问题域</li>
+</ul>
+<p><strong>流程</strong>：</p>
+<ol>
+<li><strong>识别独立域</strong>：按出问题的组件分组</li>
+<li><strong>创建聚焦的 Agent 任务</strong>：每个 Agent 有特定范围、清晰目标、约束条件和预期输出格式</li>
+<li><strong>同一响应中并行派遣</strong>：多个派遣调用在同一回复中 &#x3D; 并行执行</li>
+<li><strong>审查与整合</strong>：Agent 返回后，逐个读摘要，验证修复不冲突，运行全量测试</li>
+</ol>
+<hr>
+<h2 id="场景四：验证与完成"><a href="#场景四：验证与完成" class="headerlink" title="场景四：验证与完成"></a>场景四：验证与完成</h2><p><code>verification-before-completion</code> 在<strong>任何</strong>声称成功之前触发。</p>
+<p><strong>铁律：证据先于断言。</strong></p>
+<p><strong>门函数</strong>：</p>
+<ol>
+<li><strong>鉴别</strong>：什么命令能证明这个声称？</li>
+<li><strong>运行</strong>：完整执行，新鲜完整的输出。</li>
+<li><strong>读取</strong>：完整输出、检查退出码、数失败数。</li>
+<li><strong>验证</strong>：输出是否确认了这个声称？<ul>
+<li>否 → 陈述实际状态，附带证据。</li>
+<li>是 → 陈述声称，附带证据。</li>
+</ul>
+</li>
+<li><strong>只有这时</strong>：才能做出声称。</li>
+</ol>
+<p><strong>触发条件</strong>（包括但不限于）：</p>
+<ul>
+<li>声称”完成了”&#x2F;“修好了”&#x2F;“通过了”</li>
+<li>准备提交&#x2F;创建 PR&#x2F;声明任务完成</li>
+<li>“太好了！”&#x2F;“完美！”&#x2F;“搞定了！”等满足表达</li>
+<li>“应该”&#x2F;“大概”&#x2F;“看起来”等模糊词</li>
+<li>委派给 Agent 后相信其成功报告</li>
+</ul>
+<hr>
+<h2 id="场景五：工作空间隔离"><a href="#场景五：工作空间隔离" class="headerlink" title="场景五：工作空间隔离"></a>场景五：工作空间隔离</h2><p><code>using-git-worktrees</code> 在开始需要隔离的功能开发或执行实现计划时使用。</p>
+<p><strong>流程</strong>：</p>
+<ol>
+<li><strong>检测已有隔离</strong>：检查是否已在链接 worktree 中，是则跳过</li>
+<li><strong>优先使用平台原生工具</strong>（如 <code>EnterWorktree</code>）</li>
+<li><strong>Git Worktree 回退方案</strong>（无原生工具时）：<ul>
+<li>选目录（优先：明确指令 &gt; <code>.worktrees/</code> &gt; <code>worktrees/</code> &gt; 默认 <code>.worktrees/</code>）</li>
+<li>验证目录在 gitignore 中</li>
+<li><code>git worktree add &quot;$path&quot; -b &quot;$BRANCH_NAME&quot;</code> 并 <code>cd</code></li>
+</ul>
+</li>
+<li><strong>项目设置</strong>：自动检测并运行 setup（npm install &#x2F; cargo build &#x2F; pip install &#x2F; go mod download）</li>
+<li><strong>验证干净基线</strong>：运行测试确保工作空间干净</li>
+</ol>
+<hr>
+<h2 id="场景六：编写新-Skill"><a href="#场景六：编写新-Skill" class="headerlink" title="场景六：编写新 Skill"></a>场景六：编写新 Skill</h2><p><code>writing-skills</code> 在创建新 Skill、编辑已有 Skill 或部署前验证 Skill 时使用。</p>
+<p><strong>TDD 方法论应用于文档编写</strong>：</p>
+<h3 id="RED-阶段——写失败测试（基线）"><a href="#RED-阶段——写失败测试（基线）" class="headerlink" title="RED 阶段——写失败测试（基线）"></a>RED 阶段——写失败测试（基线）</h3><ul>
+<li>创建压力场景（纪律类 Skill 需 3+ 种组合压力）</li>
+<li><strong>不加载 Skill</strong> 运行场景，逐字记录基线行为</li>
+<li>识别合理化和失败的规律</li>
+</ul>
+<h3 id="GREEN-阶段——写最小-Skill"><a href="#GREEN-阶段——写最小-Skill" class="headerlink" title="GREEN 阶段——写最小 Skill"></a>GREEN 阶段——写最小 Skill</h3><ul>
+<li>针对那些合理化写 SKILL.md</li>
+<li>Frontmatter：<code>name</code>（仅字母、数字、连字符）、<code>description</code>（”Use when…”开头，第三人称，仅触发器，不写工作流摘要，最长 1024 字符）</li>
+<li>完整场景前先微测试措辞（每变体 5+ 次重复，始终包含无指引对照组）</li>
+<li>加载 Skill 运行场景，验证 Agent 现遵循规则</li>
+</ul>
+<h3 id="REFACTOR-阶段——封堵漏洞"><a href="#REFACTOR-阶段——封堵漏洞" class="headerlink" title="REFACTOR 阶段——封堵漏洞"></a>REFACTOR 阶段——封堵漏洞</h3><ul>
+<li>识别测试中的新型合理化</li>
+<li>添加显式反制（纪律类 Skill）</li>
+<li>构建合理化表和红牌列表</li>
+<li>反复测试直到无懈可击</li>
+</ul>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ul>
+<li>提交 Skill 到 git 并推送</li>
+</ul>
+<p><strong>前置要求</strong>：必须理解 <code>test-driven-development</code>。</p>
+<hr>
+<h2 id="Skill-依赖关系总图"><a href="#Skill-依赖关系总图" class="headerlink" title="Skill 依赖关系总图"></a>Skill 依赖关系总图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">                    using-superpowers（元技能，总是最先调用）</span><br><span class="line">                            │</span><br><span class="line">         ┌──────────────────┼──────────────────┐</span><br><span class="line">         ▼                  ▼                  ▼</span><br><span class="line">    brainstorming    systematic-         dispatching-</span><br><span class="line">         │           debugging          parallel-agents</span><br><span class="line">         ▼               │</span><br><span class="line">    writing-plans         ▼</span><br><span class="line">         │           test-driven-</span><br><span class="line">    ┌────┴────┐      development</span><br><span class="line">    ▼         ▼           │</span><br><span class="line">subagent-  executing-     │</span><br><span class="line">driven-    plans          │</span><br><span class="line">development  │            │</span><br><span class="line">    │         │           │</span><br><span class="line">    ├─────────┘           │</span><br><span class="line">    ▼                     │</span><br><span class="line">requesting-code-review    │</span><br><span class="line">    │                     │</span><br><span class="line">    ▼                     │</span><br><span class="line">receiving-code-review     │</span><br><span class="line">    │                     │</span><br><span class="line">    ▼                     │</span><br><span class="line">finishing-a-              │</span><br><span class="line">development-branch        │</span><br><span class="line">                          │</span><br><span class="line">         ┌────────────────┘</span><br><span class="line">         ▼</span><br><span class="line">  verification-before-completion（最后一道门）</span><br></pre></td></tr></table></figure>
+
+<p><strong>全局支撑</strong>：</p>
+<ul>
+<li><code>using-git-worktrees</code> — 在执行实现计划之前创建隔离工作空间</li>
+<li><code>writing-skills</code> — 用 TDD 方法编写新 Skill</li>
+</ul>
+<hr>
+<h2 id="Superpowers-与其他框架的关系"><a href="#Superpowers-与其他框架的关系" class="headerlink" title="Superpowers 与其他框架的关系"></a>Superpowers 与其他框架的关系</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Superpowers</th>
+<th>mattpocock&#x2F;skills</th>
+<th>Gstack</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>定位</strong></td>
+<td>流程纪律框架</td>
+<td>工程执行工具</td>
+<td>全生命周期平台</td>
+</tr>
+<tr>
+<td><strong>关注</strong></td>
+<td><strong>何时</strong>做、<strong>按什么顺序</strong>做</td>
+<td><strong>怎么做</strong>具体的事</td>
+<td>从想法到上线的<strong>完整流程</strong></td>
+</tr>
+<tr>
+<td><strong>特色</strong></td>
+<td>铁律强制执行</td>
+<td>盘问驱动 + 领域建模</td>
+<td>基础设施 + 自动化</td>
+</tr>
+<tr>
+<td><strong>协同</strong></td>
+<td>Skill 调用入口（检查并路由）</td>
+<td>Superpowers 流程中的执行环节</td>
+<td>可与 Superpowers 互补使用</td>
+</tr>
+</tbody></table>
+<p><strong>实际情况</strong>：<code>using-superpowers</code> 确保你在开始工作前检查所有可用 Skill——包括 mattpocock 和 Gstack 的。而 Superpowers 自己的 14 个 Skill 定义了从想法到代码的<strong>纪律边界</strong>，mattpocock 和 Gstack 在边界内提供具体执行能力。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/">AI编程</a><a class="post-meta__tags" href="/tags/Superpowers/">Superpowers</a></div><div class="post-share"><div class="social-share" data-image="/images/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">学不完，根本学不完-GSD学习指南</div></div><div class="info-2"><div class="info-item-1"> 整合 open-gsd&#x2F;gsd-core 官方全部中文文档（教程、概念说明、操作指南）和 71 个 Skill 的完整分析。   目录 Part 1：入门 —— 两条路径 路径 A：从零开始（绿地项目） 路径 B：已有代码库接入（棕地项目）   Part 2：理解 —— 核心概念 Part 3：进阶 —— 高级用法 Part 4：精通 —— 最佳实践 Part 5：完整命令速查表   Part 1：入门 —— 两条路径1.1 什么是 GSDGSD &#x3D; Git. Ship. Done. GSD Core 是一套轻量级的 AI 编程 Agent 框架。核心理念：上下文工程 + 规格驱动开发。 它解决三个根本问题   问题 现象 GSD 的解决方案    上下文腐化 会话越长，AI 输出质量越静默下降 重度工作在新鲜上下文子 Agent 中运行，主会话保持精简   无共享记忆 每次 /clear 后从零开始，丢失之前决策 用结构化文件（STATE.md、CONTEXT.md）跨会话持久化   未验证输出 代码跑了但没人确认对不对 强制验证步骤，验证通过后才能发布 ...</div></div></div></a><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">学不完，根本学不完-Gstack-Skills-使用指南</div></div><div class="info-2"><div class="info-item-1">Gstack Skills 使用指南 基于 54 个 Gstack Skill 的完整 SKILL.md 文档整理。所有流程均来自官方文档。   体系概览Gstack 是一套完整的软件开发框架，覆盖从想法到上线的全生命周期。54 个 Skill 共享统一的 preamble 基础设施（更新检查、会话跟踪、遥测、上下文恢复、学习记录等）。 核心基础设施   组件 说明    $B (browse daemon) 无头 Chromium 浏览器引擎，browse&#x2F;scrape&#x2F;canary&#x2F;benchmark&#x2F;diagram&#x2F;qa-only&#x2F;design-review&#x2F;devex-review 共用   $D (designer) 设计变体生成器，design-shotgun&#x2F;design-html&#x2F;design-review 共用   $P (make-pdf) Markdown→PDF 引擎   gbrain 知识库系统，setup-gbrain&#x2F;sync-gbrain 管理   ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/05/05/AI%E7%BC%96%E7%A8%8B%E4%B9%8BSuperpowers%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="AI编程之Superpowers工作流"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-05</div><div class="info-item-2">AI编程之Superpowers工作流</div></div><div class="info-2"><div class="info-item-1">与SpecKit、OpenSpec的对比https://github.com/obra/superpowers  Superpowers：给 AI 代理定 “干活的规矩与技能”（怎么干），偏执行层 &#x2F; 工作流强制框架。 SpecKit：GitHub 官方的 “重型规范驱动框架”（按什么规矩干），强流程、强文档、适合大型 &#x2F; 从零开始项目。 OpenSpec：社区驱动的 “轻量规范驱动框架”（改了什么、如何共识），灵活、适合存量 &#x2F; 快速迭代项目。  OpenSpec和SpecKit作为SDD开发范式，目的是让模型在执行任务的时候，有据可依，从而有效避免产生幻觉。 Superpowers是一个全自动开发工作流，其运行逻辑，和传统的SDD完全不同。 SDD趋向于将创意或者对话，转化为结构化的技术规范，以及供AI编程Agent执行的任务清单。 Superpowers的功能更进一步，它为AI提供了一套完整的开发工作流。它能自动引导AI完成头脑风暴、设计，并生成技术规范，制定详细的实施计划。 安装Superpowers 在 Claude Code 中安装 Su...</div></div></div></a><a class="pagination-related" href="/2026/05/03/%E4%B8%93%E4%B8%BA%20Codex%20%E5%AE%9A%E5%88%B6%EF%BC%9AOpenSpec%20+%20Superpowers%20+%20GSD%20%E4%B8%89%E5%90%88%E4%B8%80%E5%AE%9E%E6%93%8D%E6%B5%81%E7%A8%8B/" title="专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-03</div><div class="info-item-2">专为 Codex 定制：OpenSpec + Superpowers + GSD 三合一实操流程</div></div><div class="info-2"><div class="info-item-1">我直接给你在 Codex 里逐字复制就能用的完整操作步骤、指令、文件结构、执行顺序，完全适配 Codex 的云沙箱、并行执行、命令式风格。 你不用改任何东西，跟着做就能跑通。  一、先给 Codex 下发「总启动指令」（复制直接发）这一步是全局激活三合一模式，Codex 会自动遵守所有规则： 1234567请严格按照 GSD + OpenSpec + Superpowers 三合一工作流执行。规则：1. GSD：最小可行实现，禁止过度设计、不做无关功能、快速闭环。2. OpenSpec：必须先产出完整规范文档，再写代码。3. Superpowers：必须 TDD 先行，先写测试，再写业务代码，严格做异常处理、参数校验、日志、防重、代码审查。4. 全部在你自带的云沙箱中执行，自动创建文件、运行命令、测试。需求：开发 SpringBoot 用户修改手机号接口，包含：手机号格式校验、短信验证码校验、5秒防重复提交、记录操作日志、更新MySQL用户表。   二、Codex 会自动执行的 第一步：GSD 范围锁定它会自动输出： 12345678910111213已锁定GSD最小范围：✅ 必...</div></div></div></a><a class="pagination-related" href="/2026/05/12/OpenSpec-Superpowers%E5%8D%8F%E5%90%8C/" title="OpenSpec+Superpowers协同"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-12</div><div class="info-item-2">OpenSpec+Superpowers协同</div></div><div class="info-2"><div class="info-item-1">前言在我们对OpenSpec和Superpowers都有了初步的认识后，可能会产生一个疑问：这两个工作流，不都是先明确，再执行，有什么本质的区别吗？ 简单来说，这两个工作流，在定位上，有以下几点区别  **OpenSpec (做规划的总设计师)**：它负责制定开发规范和蓝图，解决“做什么”的问题，产出结构化的需求文档和任务清单 **Superpowers (守纪律的执行官)**：它负责将蓝图转化为工程实践，解决“怎么做”的问题，通过强制 TDD（测试驱动开发）、头脑风暴、代码审查等技能，确保每一步都符合工程标准     特性 🔍 OpenSpec (做规划) 🚀 Superpowers (保执行)    核心定位 做规划的总设计师 守纪律的执行官   解决的问题 “做什么” “怎么做”   核心能力 制定规范和蓝图，确保需求对齐与变更可追溯 确保工程纪律与执行质量，强制TDD、头脑风暴等   核心产出 proposal.md, design.md, tasks.md 等结构化文档 可执行的、细分的工作步骤，以及符合规范的最终代码   工作流程 提案 → 实施 → 归档 头脑风...</div></div></div></a><a class="pagination-related" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-18</div><div class="info-item-2">学不完，根本学不完-mattpocock-skills</div></div><div class="info-2"><div class="info-item-1">mattpocock&#x2F;skills 介绍来源：github.com&#x2F;mattpocock&#x2F;skills，由 TypeScript 教育者&#x2F;开发者 Matt Pocock 创建。 安装时间：2026-07-17，一次性批量安装 41 个 Skill，安装入口是 setup-matt-pocock-skills。  核心理念这套 Skills 围绕工程工作流设计，不是零散的工具集，而是一套互相协作的技能体系。核心思路是：  把模糊想法变成可执行计划：to-spec → to-tickets → triage 用盘问（grilling）驱动质量：grilling &#x2F; grill-me &#x2F; grill-with-docs 反复追问你的计划 用领域建模统一团队语言：domain-modeling + ubiquitous-language 每个 Skill 职责单一、可组合：比如 grill-with-docs &#x3D; grilling + domain-modeling   工作流全景1234567891011121314...</div></div></div></a><a class="pagination-related" href="/2026/05/31/understand-anything/" title="understand-anything"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-31</div><div class="info-item-2">understand-anything</div></div><div class="info-2"><div class="info-item-1">https://github.com/Lum1104/Understand-Anything/blob/main/READMEs/README.zh-CN.md 分析项目，形成知识图。 适合大型历史遗留项目。 安装 原生claude code上安装是最简单的  12/plugin marketplace add Lum1104/Understand-Anything/plugin install understand-anything   如果是其他平台的话  1curl -fsSL https://raw.githubusercontent.com/Lum1104/Understand-Anything/main/install.sh | bash    使用 生成知识图谱  进入项目路径后/understand --language=zh 这个过程会很慢，需要慢慢等  打开知识图谱  /understand-dashboard  就会自动在浏览器打开了 </div></div></div></a><a class="pagination-related" href="/2026/05/20/gstack%E6%B5%85%E5%B0%9D%E8%BE%84%E6%AD%A2/" title="gstack浅尝辄止"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-20</div><div class="info-item-2">gstack浅尝辄止</div></div><div class="info-2"><div class="info-item-1">https://github.com/garrytan/gstack 环境安装 先安装bun 123curl -fsSL https://bun.sh/install | bashsource ~/.zshrcbun -v  bun常用命令 12345bun init        # 新建项目bun i           # 安装依赖bun run xxx     # 运行脚本bun upgrade     # 更新bunbun uninstall   # 卸载  安装gstack 1git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup  进入claude后，能看到/office-hours，就说明安装成功了 HelloWorld Install gstack (30 seconds — see below) Run /o...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sherry</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nbcoolkid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好好学习，天天向上！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Superpowers-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">Superpowers 使用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%90%86%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">核心理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%81%E5%BE%8B%E4%BD%93%E7%B3%BB"><span class="toc-number">1.2.</span> <span class="toc-text">铁律体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%B7%A5%E4%BD%9C%E6%B5%81%E9%93%BE%E8%B7%AF"><span class="toc-number">1.3.</span> <span class="toc-text">完整工作流链路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80%EF%BC%9A%E4%BB%8E%E6%83%B3%E6%B3%95%E5%88%B0%E4%BB%A3%E7%A0%81%EF%BC%88%E4%B8%BB%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">场景一：从想法到代码（主工作流）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-0-%E6%AD%A5%EF%BC%9A%E4%B8%80%E5%88%87%E4%BB%8E%E8%BF%99%E9%87%8C%E5%BC%80%E5%A7%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">第 0 步：一切从这里开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-1-%E6%AD%A5%EF%BC%9A%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4"><span class="toc-number">1.4.2.</span> <span class="toc-text">第 1 步：头脑风暴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-2-%E6%AD%A5%EF%BC%9A%E7%BC%96%E5%86%99%E5%AE%9E%E7%8E%B0%E8%AE%A1%E5%88%92"><span class="toc-number">1.4.3.</span> <span class="toc-text">第 2 步：编写实现计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-3-%E6%AD%A5%EF%BC%9A%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92"><span class="toc-number">1.4.4.</span> <span class="toc-text">第 3 步：执行计划</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88-A%EF%BC%9A%E5%AD%90-Agent-%E9%A9%B1%E5%8A%A8%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">方案 A：子 Agent 驱动（推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88-B%EF%BC%9A%E5%86%85%E8%81%94%E6%89%A7%E8%A1%8C%EF%BC%88%E6%97%A0%E5%AD%90-Agent-%E6%97%B6%EF%BC%89"><span class="toc-number">1.4.4.2.</span> <span class="toc-text">方案 B：内联执行（无子 Agent 时）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-4-%E6%AD%A5%EF%BC%9A%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.5.</span> <span class="toc-text">第 4 步：测试驱动开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-5-%E6%AD%A5%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5"><span class="toc-number">1.4.6.</span> <span class="toc-text">第 5 步：代码审查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-6-%E6%AD%A5%EF%BC%9A%E5%AE%8C%E6%88%90%E5%88%86%E6%94%AF"><span class="toc-number">1.4.7.</span> <span class="toc-text">第 6 步：完成分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C%EF%BC%9A%E8%B0%83%E8%AF%95"><span class="toc-number">1.5.</span> <span class="toc-text">场景二：调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-1%EF%BC%9A%E6%A0%B9%E5%9B%A0%E8%B0%83%E6%9F%A5%EF%BC%88%E5%9C%A8%E4%BB%BB%E4%BD%95%E4%BF%AE%E5%A4%8D%E4%B9%8B%E5%89%8D%EF%BC%89"><span class="toc-number">1.5.1.</span> <span class="toc-text">Phase 1：根因调查（在任何修复之前）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-2%EF%BC%9A%E6%A8%A1%E5%BC%8F%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.</span> <span class="toc-text">Phase 2：模式分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-3%EF%BC%9A%E5%81%87%E8%AE%BE%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.3.</span> <span class="toc-text">Phase 3：假设与测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-4%EF%BC%9A%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.5.4.</span> <span class="toc-text">Phase 4：实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%89%EF%BC%9A%E5%B9%B6%E8%A1%8C%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.6.</span> <span class="toc-text">场景三：并行任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%9B%9B%EF%BC%9A%E9%AA%8C%E8%AF%81%E4%B8%8E%E5%AE%8C%E6%88%90"><span class="toc-number">1.7.</span> <span class="toc-text">场景四：验证与完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%94%EF%BC%9A%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E9%9A%94%E7%A6%BB"><span class="toc-number">1.8.</span> <span class="toc-text">场景五：工作空间隔离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%85%AD%EF%BC%9A%E7%BC%96%E5%86%99%E6%96%B0-Skill"><span class="toc-number">1.9.</span> <span class="toc-text">场景六：编写新 Skill</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RED-%E9%98%B6%E6%AE%B5%E2%80%94%E2%80%94%E5%86%99%E5%A4%B1%E8%B4%A5%E6%B5%8B%E8%AF%95%EF%BC%88%E5%9F%BA%E7%BA%BF%EF%BC%89"><span class="toc-number">1.9.1.</span> <span class="toc-text">RED 阶段——写失败测试（基线）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GREEN-%E9%98%B6%E6%AE%B5%E2%80%94%E2%80%94%E5%86%99%E6%9C%80%E5%B0%8F-Skill"><span class="toc-number">1.9.2.</span> <span class="toc-text">GREEN 阶段——写最小 Skill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REFACTOR-%E9%98%B6%E6%AE%B5%E2%80%94%E2%80%94%E5%B0%81%E5%A0%B5%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.9.3.</span> <span class="toc-text">REFACTOR 阶段——封堵漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.9.4.</span> <span class="toc-text">部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Skill-%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E6%80%BB%E5%9B%BE"><span class="toc-number">1.10.</span> <span class="toc-text">Skill 依赖关系总图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Superpowers-%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A1%86%E6%9E%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.11.</span> <span class="toc-text">Superpowers 与其他框架的关系</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南">学不完，根本学不完-GSD学习指南</a><time datetime="2026-07-18T14:21:23.000Z" title="发表于 2026-07-18 22:21:23">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南">学不完，根本学不完-Superpowers使用指南</a><time datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南">学不完，根本学不完-Gstack-Skills-使用指南</a><time datetime="2026-07-18T13:41:54.000Z" title="发表于 2026-07-18 21:41:54">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills">学不完，根本学不完-mattpocock-skills</a><time datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/01/HelloWorld-C/" title="HelloWorld-C">HelloWorld-C</a><time datetime="2026-06-01T12:32:31.000Z" title="发表于 2026-06-01 20:32:31">2026-06-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Sherry</span></div><div class="footer_custom_text">Powered by Sherry | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备19002332号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="Search..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
