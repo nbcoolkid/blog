@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>codex狂写日志毁磁盘的bug修复了吗 | 认真生活，慢慢记录</title><meta name="author" content="Sherry"><meta name="copyright" content="Sherry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="短答案：修复了一部分，但不能简单说“彻底修好了”。 目前公开信息显示，Codex 的“狂写日志导致 SSD 写入异常”的问题确实存在过，主要是本地日志（尤其 ~&#x2F;.codex&#x2F;logs_2.sqlite &#x2F; WAL）过度写入。后续有修复和缓解，但仍有人报告类似 I&#x2F;O 问题。GitHub 具体情况：  早期问题： Codex 的日志系统会产生大量 TRACE 级别日志。 某些情">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codex狂写日志毁磁盘的bug修复了吗">
+<meta property="og:url" content="https://blog.zhangln.com/2026/07/21/codex%E7%8B%82%E5%86%99%E6%97%A5%E5%BF%97%E6%AF%81%E7%A3%81%E7%9B%98%E7%9A%84bug%E4%BF%AE%E5%A4%8D%E4%BA%86%E5%90%97/index.html">
+<meta property="og:site_name" content="认真生活，慢慢记录">
+<meta property="og:description" content="短答案：修复了一部分，但不能简单说“彻底修好了”。 目前公开信息显示，Codex 的“狂写日志导致 SSD 写入异常”的问题确实存在过，主要是本地日志（尤其 ~&#x2F;.codex&#x2F;logs_2.sqlite &#x2F; WAL）过度写入。后续有修复和缓解，但仍有人报告类似 I&#x2F;O 问题。GitHub 具体情况：  早期问题： Codex 的日志系统会产生大量 TRACE 级别日志。 某些情">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.zhangln.com/images/avatar.jpg">
+<meta property="article:published_time" content="2026-07-21T13:22:23.000Z">
+<meta property="article:modified_time" content="2026-07-21T13:24:47.543Z">
+<meta property="article:author" content="Sherry">
+<meta property="article:tag" content="ChatGPT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zhangln.com/images/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "codex狂写日志毁磁盘的bug修复了吗",
+  "url": "https://blog.zhangln.com/2026/07/21/codex%E7%8B%82%E5%86%99%E6%97%A5%E5%BF%97%E6%AF%81%E7%A3%81%E7%9B%98%E7%9A%84bug%E4%BF%AE%E5%A4%8D%E4%BA%86%E5%90%97/",
+  "image": "https://blog.zhangln.com/images/avatar.jpg",
+  "datePublished": "2026-07-21T13:22:23.000Z",
+  "dateModified": "2026-07-21T13:24:47.543Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sherry",
+      "url": "https://blog.zhangln.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://blog.zhangln.com/2026/07/21/codex%E7%8B%82%E5%86%99%E6%97%A5%E5%BF%97%E6%AF%81%E7%A3%81%E7%9B%98%E7%9A%84bug%E4%BF%AE%E5%A4%8D%E4%BA%86%E5%90%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'codex狂写日志毁磁盘的bug修复了吗',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1F3E54;"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">认真生活，慢慢记录</span></a><a class="nav-page-title" href="/"><span class="site-name">codex狂写日志毁磁盘的bug修复了吗</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="post-info"><h1 class="post-title">codex狂写日志毁磁盘的bug修复了吗</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-21T13:22:23.000Z" title="发表于 2026-07-21 21:22:23">2026-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-21T13:24:47.543Z" title="更新于 2026-07-21 21:24:47">2026-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ChatGPT/">ChatGPT</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">580</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>短答案：<strong>修复了一部分，但不能简单说“彻底修好了”。</strong> 目前公开信息显示，Codex 的“狂写日志导致 SSD 写入异常”的问题确实存在过，主要是本地日志（尤其 <code>~/.codex/logs_2.sqlite</code> &#x2F; WAL）过度写入。后续有修复和缓解，但仍有人报告类似 I&#x2F;O 问题。<a target="_blank" rel="noopener" href="https://github.com/openai/codex/issues/21007?utm_source=chatgpt.com">GitHub</a></p>
+<p>具体情况：</p>
+<ul>
+<li>早期问题：<ul>
+<li>Codex 的日志系统会产生大量 TRACE 级别日志。</li>
+<li>某些情况下 SQLite 日志库持续写入，导致 <code>logs_2.sqlite-wal</code> 快速增长。</li>
+<li>有用户报告出现 GB&#x2F;s 级别累计写入、几十 TB SSD 写入量。<a target="_blank" rel="noopener" href="https://github.com/openai/codex/issues/17320?utm_source=chatgpt.com">GitHub</a></li>
+</ul>
+</li>
+<li>后续状态：<ul>
+<li>一些相关问题被关闭&#x2F;修复或降低影响，但 GitHub 上仍有新的性能和写盘相关 issue，例如 macOS Desktop 持续写盘、长会话导致日志膨胀等。<a target="_blank" rel="noopener" href="https://github.com/openai/codex/issues/21007?utm_source=chatgpt.com">GitHub</a></li>
+<li>所以更准确的说法是：<strong>核心的严重日志风暴问题已经处理过，但 Codex 的本地状态、日志、长会话仍可能产生异常 I&#x2F;O。</strong><a target="_blank" rel="noopener" href="https://github.com/openai/codex/issues/21134?utm_source=chatgpt.com">GitHub</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>如果你现在用的是 macOS，我建议先检查你的机器有没有被影响：</p>
+<h3 id="1-看-Codex-日志大小"><a href="#1-看-Codex-日志大小" class="headerlink" title="1. 看 Codex 日志大小"></a>1. 看 Codex 日志大小</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh ~/.codex/*</span><br></pre></td></tr></table></figure>
+
+<p>重点看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/.codex/logs_2.sqlite</span><br><span class="line">~/.codex/logs_2.sqlite-wal</span><br><span class="line">~/.codex/sessions</span><br></pre></td></tr></table></figure>
+
+<p>如果看到：</p>
+<ul>
+<li>几百 MB：正常</li>
+<li>1～2 GB：偏大</li>
+<li>5GB+：明显异常</li>
+</ul>
+<hr>
+<h3 id="2-看-SSD-已经写了多少"><a href="#2-看-SSD-已经写了多少" class="headerlink" title="2. 看 SSD 已经写了多少"></a>2. 看 SSD 已经写了多少</h3><p>Apple Silicon：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smartctl -a /dev/disk0 | grep -E &quot;Data Units Written|Percentage Used&quot;</span><br></pre></td></tr></table></figure>
+
+<p>重点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Data Units Written</span><br><span class="line">Percentage Used</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果没有 smartctl：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install smartmontools</span><br></pre></td></tr></table></figure>
+
+<p>然后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smartctl -x /dev/disk0</span><br></pre></td></tr></table></figure>
+
+<p>重点看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Data Units Written</span><br><span class="line">Percentage Used</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Data Units Written: 12,345,678</span><br><span class="line">Percentage Used: 3%</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li>SSD 已写约 1.2PB（不同厂商换算略有差异）</li>
+<li>寿命消耗约 3%</li>
+</ul>
+<hr>
+<h3 id="3-看-Codex-是否还在疯狂写"><a href="#3-看-Codex-是否还在疯狂写" class="headerlink" title="3. 看 Codex 是否还在疯狂写"></a>3. 看 Codex 是否还在疯狂写</h3><p>打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">活动监视器 → 磁盘 → 数据写入</span><br></pre></td></tr></table></figure>
+
+<p>或者终端：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fs_usage -w -f filesystem | grep codex</span><br></pre></td></tr></table></figure>
+
+<p>如果空闲状态下仍持续出现大量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">write</span><br><span class="line">pwrite</span><br><span class="line">sqlite</span><br><span class="line">logs_2.sqlite</span><br></pre></td></tr></table></figure>
+
+<p>说明还有问题。</p>
+<hr>
+<h3 id="4-如果你担心-SSD，暂时可以做："><a href="#4-如果你担心-SSD，暂时可以做：" class="headerlink" title="4. 如果你担心 SSD，暂时可以做："></a>4. 如果你担心 SSD，暂时可以做：</h3><p>关闭 Codex 后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill codex</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh ~/.codex/logs_2.sqlite*</span><br></pre></td></tr></table></figure>
+
+<p>如果很大，可以备份后清理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv ~/.codex/logs_2.sqlite ~/.codex/logs_2.sqlite.backup</span><br></pre></td></tr></table></figure>
+
+<p>下次启动 Codex 会重新创建。</p>
+<hr>
+<p>如果你告诉我：</p>
+<ol>
+<li>你的 Codex 版本（Codex → About 或 <code>codex --version</code>）  </li>
+<li>macOS 版本  </li>
+<li><code>du -sh ~/.codex/*</code> 输出  </li>
+<li>SSD 的 <code>Data Units Written</code></li>
+</ol>
+<p>我可以帮你判断<strong>你的 SSD 是否已经被这个 bug 明显消耗寿命</strong>。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ChatGPT/">ChatGPT</a></div><div class="post-share"><div class="social-share" data-image="/images/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">学不完，根本学不完-GSD学习指南</div></div><div class="info-2"><div class="info-item-1"> 整合 open-gsd&#x2F;gsd-core 官方全部中文文档（教程、概念说明、操作指南）和 71 个 Skill 的完整分析。   目录 Part 1：入门 —— 两条路径 路径 A：从零开始（绿地项目） 路径 B：已有代码库接入（棕地项目）   Part 2：理解 —— 核心概念 Part 3：进阶 —— 高级用法 Part 4：精通 —— 最佳实践 Part 5：完整命令速查表   Part 1：入门 —— 两条路径1.1 什么是 GSDGSD &#x3D; Git. Ship. Done. GSD Core 是一套轻量级的 AI 编程 Agent 框架。核心理念：上下文工程 + 规格驱动开发。 它解决三个根本问题   问题 现象 GSD 的解决方案    上下文腐化 会话越长，AI 输出质量越静默下降 重度工作在新鲜上下文子 Agent 中运行，主会话保持精简   无共享记忆 每次 /clear 后从零开始，丢失之前决策 用结构化文件（STATE.md、CONTEXT.md）跨会话持久化   未验证输出 代码跑了但没人确认对不对 强制验证步骤，验证通过后才能发布 ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sherry</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nbcoolkid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好好学习，天天向上！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%9C%8B-Codex-%E6%97%A5%E5%BF%97%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.</span> <span class="toc-text">1. 看 Codex 日志大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%9C%8B-SSD-%E5%B7%B2%E7%BB%8F%E5%86%99%E4%BA%86%E5%A4%9A%E5%B0%91"><span class="toc-number">2.</span> <span class="toc-text">2. 看 SSD 已经写了多少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%9C%8B-Codex-%E6%98%AF%E5%90%A6%E8%BF%98%E5%9C%A8%E7%96%AF%E7%8B%82%E5%86%99"><span class="toc-number">3.</span> <span class="toc-text">3. 看 Codex 是否还在疯狂写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%8B%85%E5%BF%83-SSD%EF%BC%8C%E6%9A%82%E6%97%B6%E5%8F%AF%E4%BB%A5%E5%81%9A%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">4. 如果你担心 SSD，暂时可以做：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/21/codex%E7%8B%82%E5%86%99%E6%97%A5%E5%BF%97%E6%AF%81%E7%A3%81%E7%9B%98%E7%9A%84bug%E4%BF%AE%E5%A4%8D%E4%BA%86%E5%90%97/" title="codex狂写日志毁磁盘的bug修复了吗">codex狂写日志毁磁盘的bug修复了吗</a><time datetime="2026-07-21T13:22:23.000Z" title="发表于 2026-07-21 21:22:23">2026-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-GSD%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-GSD学习指南">学不完，根本学不完-GSD学习指南</a><time datetime="2026-07-18T14:21:23.000Z" title="发表于 2026-07-18 22:21:23">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Superpowers%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Superpowers使用指南">学不完，根本学不完-Superpowers使用指南</a><time datetime="2026-07-18T13:44:20.000Z" title="发表于 2026-07-18 21:44:20">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-Gstack-Skills-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="学不完，根本学不完-Gstack-Skills-使用指南">学不完，根本学不完-Gstack-Skills-使用指南</a><time datetime="2026-07-18T13:41:54.000Z" title="发表于 2026-07-18 21:41:54">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/18/%E5%AD%A6%E4%B8%8D%E5%AE%8C%EF%BC%8C%E6%A0%B9%E6%9C%AC%E5%AD%A6%E4%B8%8D%E5%AE%8C-mattpocock-skills/" title="学不完，根本学不完-mattpocock-skills">学不完，根本学不完-mattpocock-skills</a><time datetime="2026-07-18T07:51:08.000Z" title="发表于 2026-07-18 15:51:08">2026-07-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/bg.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Sherry</span></div><div class="footer_custom_text">Powered by Sherry | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备19002332号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="Search..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
